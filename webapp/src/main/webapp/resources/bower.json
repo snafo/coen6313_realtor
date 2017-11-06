@@ -1,0 +1,26 @@
+{
+  "name": "Realtor",
+  "version": "1.0.0-alpha.5 (AngularJS)",
+  "dependencies": {
+    "jquery": "3.2.1",
+    "angular": "latest",
+    "angular-ui-router": "1.0.6",
+    "fontawesome": "latest",
+    "simple-line-icons": "latest",
+    "bootstrap": "^3.3.7",
+    "restangular": "^1.6.1",
+    "angular-momentjs": "^0.2.2",
+    "datetimepicker": "^2.5.4",
+    "angular-ui-grid": "^4.0.6",
+    "bootstrap-datepicker": "^1.7.1",
+    "angular-daterangepicker": "^0.2.2",
+    "angular-bootstrap": "^2.5.0",
+    "moment": "^2.18.1",
+    "ng-table": "^4.0.0",
+    "glyphicons-halflings": "*"
+  },
+  "private": true,
+  "resolutions": {
+    "angular": "1.6.6"
+  }
+}
