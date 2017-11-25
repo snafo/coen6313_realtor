@@ -6,10 +6,17 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="crawler" />
+        <module name="crawler4j" />
+        <module name="database" />
         <module name="webapp" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="crawler" target="1.7" />
+      <module name="crawler4j" target="1.8" />
+      <module name="crawler4j-parent" target="1.5" />
+      <module name="database" target="1.7" />
       <module name="realtor" target="1.5" />
       <module name="webapp" target="1.7" />
     </bytecodeTargetLevel>
