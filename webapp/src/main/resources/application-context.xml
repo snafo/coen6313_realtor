@@ -6,7 +6,7 @@
 
     <context:property-placeholder location="classpath:db.properties" />
 
-    <import resource="classpath:crawler-database-application-context.xml" />
+    <import resource="classpath:database-context.xml" />
 
     <context:component-scan base-package="controller" />
 </beans>

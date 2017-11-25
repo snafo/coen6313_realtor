@@ -11,5 +11,11 @@ angular
         url: '/main',
         templateUrl: 'resources/views/main.html',
         controller : 'cribsController'
+      })
+
+      .state('user',{
+        url:'/user',
+        templateUrl : 'resources/views/user.html',
+        controller : 'UserController'
       });
   }]);

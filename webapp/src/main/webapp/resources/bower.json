@@ -16,10 +16,12 @@
     "angular-daterangepicker": "^0.2.2",
     "angular-bootstrap": "^2.5.0",
     "moment": "^2.18.1",
-    "angularjs-google-maps":"0.5.0",
-    "angular-directive.g-signin":"0.1.2",
+    "angularjs-google-maps": "0.5.0",
+    "angular-directive.g-signin": "0.1.2",
     "ng-table": "^4.0.0",
-    "glyphicons-halflings": "*"
+    "glyphicons-halflings": "*",
+    "ng-facebook": "^0.1.6",
+    "ngmap": "^1.18.4"
   },
   "private": true,
   "resolutions": {

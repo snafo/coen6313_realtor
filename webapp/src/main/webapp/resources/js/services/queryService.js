@@ -8,7 +8,7 @@ angular.module('app.services')
         }
 
         function getProperty(param) {
-            return Restangular.one("property/get")
+            return Restangular.one("/property/get")
                 .get({
                     'source': param.source,
                     'area': param.area,
@@ -20,7 +20,14 @@ angular.module('app.services')
                 .then(stripRestangular);
         }
 
+        function createUser(param){
+            return Restangular.one("/user/create")
+                .post('',param)
+                .then(stripRestangular);
+        }
+
         return {
-            getProperty: getProperty
+            getProperty : getProperty,
+            createUser : createUser
         };
     });

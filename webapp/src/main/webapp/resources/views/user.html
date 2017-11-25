@@ -1,0 +1,14 @@
+<div>
+    <label class="formLabel">Name</label>
+    <input name="name" class="form-control" ng-model="userParam.name" placeholder="please enter your name"
+           required>
+
+    <label class="formLabel">password</label>
+    <input name="password" class="form-control" ng-model="userParam.password" placeholder="please enter password"
+           required>
+
+    <button type="button" ng-click="createUser(userParam)">Submit</button>
+</div>
+<div>
+    <ng-map center="41,-87" zoom="3"></ng-map>
+</div>

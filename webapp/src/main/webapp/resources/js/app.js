@@ -30,8 +30,13 @@ angular
         'ui.grid.autoResize',
         'app.services',
         'app.controllers',
-        'app.routing'
+        'app.routing',
+        'ngFacebook',
+        'ngMap'
     ])
+    .config(function($facebookProvider){
+        $facebookProvider.setAppId('174897076426435');
+    })
     .run(['$rootScope', '$state', '$stateParams', 'Restangular', function($rootScope, $state, $stateParams, Restangular) {
         $rootScope.$on('$stateChangeSuccess',function(){
             document.body.scrollTop = document.documentElement.scrollTop = 0;
@@ -40,6 +45,10 @@ angular
         $rootScope.$state = $state;
         $rootScope.$stateParams = $stateParams;
 
+        (function(){
+
+
+        }());
     }]);
 
 

@@ -1,18 +1,18 @@
-package entities;
+package entity;
 
 import javax.persistence.*;
-import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
-@Table(name = "USER", schema = "public", catalog = "realtor")
+@Table(name = "user", schema = "public")
 public class UserEntity {
     private int id;
     private String name;
     private String password;
 
     @Id
-    @Basic
     @Column(name = "id")
+    @SequenceGenerator(name="user_id_seq", sequenceName="user_id_seq", allocationSize=1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE ,generator="user_id_seq")
     public int getId() {
         return id;
     }
@@ -21,7 +21,6 @@ public class UserEntity {
         this.id = id;
     }
 
-    @Basic
     @Column(name = "name")
     public String getName() {
         return name;
@@ -31,7 +30,6 @@ public class UserEntity {
         this.name = name;
     }
 
-    @Basic
     @Column(name = "password")
     public String getPassword() {
         return password;
