@@ -29,7 +29,7 @@ public class DataProvider {
 //                new Document("$sort", new Document("views.date", 1)),
 //                new Document("$limit", 200),
 //                new Document("$project", new Document("_id", 0)
-//                        .append("url", "$views.url")
+//                        .append("crawler.url", "$views.crawler.url")
 //                        .append("date", "$views.date"))
 //        ));
     }
