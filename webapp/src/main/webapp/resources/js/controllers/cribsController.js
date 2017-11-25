@@ -23,7 +23,7 @@ angular.module('app.controllers').
         $scope.newListing = {};
 
         $scope.addCrib = function (newListing) {
-            newListing.image='default-crib';
+            newListing.image='resources/image/default-crib';
             $scope.cribs.push(newListing);
             $scope.newListing={};
         };

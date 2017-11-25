@@ -22,4 +22,5 @@ node_modules/
 bower_components/
 ngmin/
 dist/
+lib/
 
