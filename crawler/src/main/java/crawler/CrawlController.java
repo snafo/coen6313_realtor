@@ -28,6 +28,8 @@ package crawler; /**
 //import edu.uci.ics.crawler4j.crawler.url.URLCanonicalizer;
 //import edu.uci.ics.crawler4j.crawler.url.WebURL;
 //import edu.uci.ics.crawler4j.util.IO;
+import crawler.crawler.robotstxt.RobotstxtServer;
+import crawler.fetcher.PageFetcher;
 import crawler.frontier.Frontier;
 import crawler.url.TLDList;
 import org.slf4j.Logger;
@@ -97,7 +99,7 @@ public class CrawlController extends Configurable {
 
         config.validate();
 
-        TLDList.setUseOnline(config.isOnlineTldListUpdate());
+//        TLDList.setUseOnline(config.isOnlineTldListUpdate());
 
         frontier = new Frontier(config);
 
@@ -295,6 +297,8 @@ public class CrawlController extends Configurable {
             finished = false;
             final List<Thread> threads = new ArrayList<>();
             final List<T> crawlers = new ArrayList<>();
+
+            new Thread(new Extractor(frontier)).start();
 
             for (int i = 1; i <= numberOfCrawlers; i++) {
                 T crawler = crawlerFactory.newInstance();

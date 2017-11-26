@@ -17,8 +17,6 @@
 
 package crawler.url;
 
-import edu.uci.ics.crawler4j.url.UrlResolver;
-
 import java.net.*;
 import java.util.LinkedHashMap;
 import java.util.Map;

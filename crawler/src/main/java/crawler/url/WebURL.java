@@ -16,8 +16,6 @@
  */
 
 package crawler.url;
-import edu.uci.ics.crawler4j.url.TLDList;
-
 import java.io.Serializable;
 import java.net.URI;
 

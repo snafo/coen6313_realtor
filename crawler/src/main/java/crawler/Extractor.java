@@ -1,14 +1,10 @@
 package crawler;
 
+import crawler.crawler.exceptions.ParseException;
 import crawler.frontier.Frontier;
-//import edu.uci.ics.crawler4j.crawler.CrawlConfig;
+import crawler.parser.NotAllowedContentException;
 import crawler.url.URLCanonicalizer;
 import crawler.url.WebURL;
-import edu.uci.ics.crawler4j.crawler.exceptions.ParseException;
-import edu.uci.ics.crawler4j.parser.NotAllowedContentException;
-//import edu.uci.ics.crawler4j.parser.Parser;
-//import edu.uci.ics.crawler4j.url.URLCanonicalizer;
-//import edu.uci.ics.crawler4j.url.WebURL;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -28,31 +24,45 @@ import java.util.concurrent.TimeUnit;
 /**
  * Created by qinyu on 2017-11-23.
  */
-public class Extractor {
-//    private Parser parser;
+public class Extractor implements Runnable{
     private WebDriver webDriver;
     private Frontier frontier;
+    private WebURL seed;
+    private int failedTime;
+    private int threshold;
 
     public Extractor(Frontier frontier) throws IllegalAccessException, InstantiationException {
-//        parser = new Parser(new CrawlConfig());
         System.setProperty("webdriver.gecko.driver", "C:\\Program Files\\geckodriver\\geckodriver.exe");
         webDriver = new FirefoxDriver();
         this.frontier = frontier;
+        failedTime = 0;
+        threshold = 10;
+        seed = generateSeed("https://www.centris.ca/en/properties~for-sale~montreal-island?view=List&uc=0");
+//        seed = generateSeed("https://duproprio.com/en/search/list?search=true&regions%5B0%5D=6&is_for_sale=1&with_builders=1&parent=1&pageNumber=1&sort=-published_at");
+    }
 
+    public void run(){
+        try {
+            extractUrl(seed);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (NotAllowedContentException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     public void extractUrl(WebURL seed) throws IOException, NotAllowedContentException, ParseException, InterruptedException {
-        webDriver.manage().timeouts().pageLoadTimeout(2, TimeUnit.SECONDS);
-        webDriver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        webDriver.manage().timeouts().pageLoadTimeout(5, TimeUnit.SECONDS);
+        webDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         String baseUri = "https://www.centris.ca";
 //        String baseUri = "https://duproprio.com";
-//        WebURL seed = generateSeed("https://www.centris.ca/en/properties~for-sale~montreal-island?view=List&uc=0");
-//        WebURL seed = generateSeed("https://duproprio.com/en/search/list?search=true&regions%5B0%5D=6&is_for_sale=1&with_builders=1&parent=1&pageNumber=1&sort=-published_at");
-//        WebDriverWait wait = new WebDriverWait(webDriver, 5);
         try {
             webDriver.get(seed.getURL());
         }catch (Exception e){}
-//        webDriver.get("https://www.centris.ca/en/duplexes~for-sale~cote-des-neiges-notre-dame-de-grace-montreal/17035183?view=Summary&uc=1");
         Document document = Jsoup.parse(webDriver.getPageSource());
 
 
@@ -84,6 +94,7 @@ public class Extractor {
                         }
                     }
                 }
+                failedTime = 0;
             }
 //            writeCSV(urls);
 //            urls.clear();
@@ -92,11 +103,17 @@ public class Extractor {
 //                try {
 //                    webDriver.findElements(By.cssSelector(".info-sessions-popup__close-icon")).get(0).click();
 //                }catch (Exception e){}
+//                try {
+//                    webDriver.findElements(By.cssSelector(".email-alerts-form__close-icon")).get(0).click();
+//                }catch (Exception e){}
                 webDriver.findElements(By.cssSelector("#divWrapperPager > ul > li.next > a")).get(0).click();
 //                webDriver.findElements(By.cssSelector("#react-component-SearchPagination > nav > div.pagination__arrow.pagination__arrow--right")).get(0).click();
-//        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".model-name")));
+                Thread.sleep(1000);
             }catch (Exception e){
-
+                if (++failedTime >= threshold){
+                    webDriver.close();
+                    break;
+                }
             }
         }
     }

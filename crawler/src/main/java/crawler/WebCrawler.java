@@ -13,7 +13,7 @@ import java.util.List;
  */
 public class WebCrawler implements Runnable {
 
-    protected static final Logger logger = LoggerFactory.getLogger(edu.uci.ics.crawler4j.crawler.WebCrawler.class);
+    protected static final Logger logger = LoggerFactory.getLogger(WebCrawler.class);
 
     /**
      * The id associated to the crawler thread running this instance
@@ -122,6 +122,7 @@ public class WebCrawler implements Runnable {
     public void onBeforeExit() {
         // Do nothing by default
         // Sub-classed can override this to add their custom functionality
+        processor.closeWebDriver();
     }
 
     /**
