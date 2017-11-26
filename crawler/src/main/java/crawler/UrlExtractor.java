@@ -1,11 +1,10 @@
 package crawler;
 
-import edu.uci.ics.crawler4j.crawler.CrawlConfig;
-import edu.uci.ics.crawler4j.crawler.exceptions.ParseException;
-import edu.uci.ics.crawler4j.parser.NotAllowedContentException;
-import edu.uci.ics.crawler4j.parser.Parser;
-import edu.uci.ics.crawler4j.url.URLCanonicalizer;
-import edu.uci.ics.crawler4j.url.WebURL;
+import crawler.crawler.exceptions.ParseException;
+import crawler.parser.NotAllowedContentException;
+import crawler.parser.Parser;
+import crawler.url.URLCanonicalizer;
+import crawler.url.WebURL;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;

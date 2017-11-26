@@ -15,7 +15,7 @@ package crawler; /**
  * limitations under the License.
  */
 
-import edu.uci.ics.crawler4j.crawler.authentication.AuthInfo;
+import crawler.crawler.authentication.AuthInfo;
 import org.apache.http.Header;
 import org.apache.http.client.config.CookieSpecs;
 import org.apache.http.conn.DnsResolver;
@@ -213,9 +213,9 @@ public class CrawlConfig {
      * @throws Exception on Validation fail
      */
     public void validate() throws Exception {
-        if (crawlStorageFolder == null) {
-            throw new Exception("Crawl storage folder is not set in the crawler.CrawlConfig.");
-        }
+//        if (crawlStorageFolder == null) {
+//            throw new Exception("Crawl storage folder is not set in the crawler.CrawlConfig.");
+//        }
         if (politenessDelay < 0) {
             throw new Exception("Invalid value for politeness delay: " + politenessDelay);
         }

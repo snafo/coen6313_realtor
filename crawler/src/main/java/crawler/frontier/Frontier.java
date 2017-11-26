@@ -1,11 +1,6 @@
 package crawler.frontier;
 
-//import com.sleepycat.je.DatabaseException;
-//import com.sleepycat.je.Environment;
-//import edu.uci.ics.crawler4j.crawler.crawler.Configurable;
-//import edu.uci.ics.crawler4j.crawler.crawler.CrawlConfig;
-//import edu.uci.ics.crawler4j.crawler.frontier.Counters;
-//import edu.uci.ics.crawler4j.crawler.url.WebURL;
+
 import crawler.Configurable;
 import crawler.CrawlConfig;
 import crawler.url.WebURL;

@@ -28,10 +28,10 @@ public class Processor {
         webDriver.manage().timeouts().pageLoadTimeout(2, TimeUnit.SECONDS);
         webDriver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 
-//        source = "centris";
-//        outFileName = "centris_info.csv";
-        source = "duproprio";
-        outFileName = "duproprio_info.json";
+        source = "centris";
+        outFileName = "centris_info.csv";
+//        source = "duproprio";
+//        outFileName = "duproprio_info.json";
     }
 
     public void process(WebURL curURL){
@@ -46,8 +46,8 @@ public class Processor {
                 InfoExtractor.Property property = new InfoExtractor.Property();
                 property.setSource(source);
                 property.setUrl(curURL.getURL());
-//                    getCentrisProperty(document, property);
-                getDuproprioProperty(document, property);
+                    getCentrisProperty(document, property);
+//                getDuproprioProperty(document, property);
                 writeJson(gson.toJson(property),outFileName);
 
             }catch (Exception e){
@@ -55,12 +55,10 @@ public class Processor {
             }
         }catch (Exception e){
             e.printStackTrace();
-        }finally {
-            webDriver.close();
         }
     }
 
-    private static InfoExtractor.Property getCentrisProperty(Document document, InfoExtractor.Property property){
+    private InfoExtractor.Property getCentrisProperty(Document document, InfoExtractor.Property property){
         String typeSelector = "#overview > div.grid_3 > div > h1 > span:nth-child(1)";
         String addressSelector = "#overview > div.grid_3 > div > div.address > h2";
         String priceSelector = "#BuyPrice";
@@ -69,7 +67,6 @@ public class Processor {
         String tableSelector = "#overview > div.grid_3 > div > table";
         String yearRegex = "td-tag Year built td-tag td-tag (.+?) td-tag";
         String areaRegex = "(td-tag \\b(?!td-tag\\b)\\w+ area td-tag td-tag (.+?) td-tag)";
-
 
         property.setType(extractInfo(document, typeSelector));
         property.setAddress(extractInfo(document, addressSelector));
@@ -82,7 +79,7 @@ public class Processor {
         return property;
     }
 
-    private static InfoExtractor.Property getDuproprioProperty(Document document, InfoExtractor.Property property){
+    private InfoExtractor.Property getDuproprioProperty(Document document, InfoExtractor.Property property){
         String typeSelector = "body > div.container > div.listing-container > div > div.listing-sidebar > div.listing-information > div.listing-profile > div.listing-address > h3";
         String addressSelector = "body > div.container > div.listing-container > div > div.listing-sidebar > div.listing-information > div.listing-profile > div.listing-address > div.listing-location__group-address > div";
         String priceSelector = "body > div.container > div.listing-container > div > div.listing-sidebar > div.listing-information > div.listing-profile > div.listing-address > div.listing-price > div.listing-price__amount";
@@ -105,7 +102,7 @@ public class Processor {
         return property;
     }
 
-    private static String extractInfo(Document document, String selector){
+    private String extractInfo(Document document, String selector){
         try {
             return document.select(selector).get(0).text();
         }catch (Exception e){
@@ -113,7 +110,7 @@ public class Processor {
         }
     }
 
-    private static Double filterNumber(String input){
+    private Double filterNumber(String input){
         if (input == null || input.isEmpty()){
             return null;
         }
@@ -128,14 +125,14 @@ public class Processor {
         return null;
     }
 
-    private static Document insertMarkIntoText(Document document, String selector) {
+    private Document insertMarkIntoText(Document document, String selector) {
         Document clone = document.clone();
         clone.select(selector).prepend(selector + "-tag ");
         clone.select(selector).append(" " + selector + "-tag");
         return clone;
     }
 
-    private static String applyTransform(String value, String regex) {
+    private String applyTransform(String value, String regex) {
         try {
             value = value.replaceAll(" +", " ");
             Pattern pattern = Pattern.compile(regex);
@@ -148,10 +145,14 @@ public class Processor {
         return null;
     }
 
-    private static void writeJson(String jsonString, String fileName)  {
+    private void writeJson(String jsonString, String fileName)  {
         try (PrintWriter printWriter = new PrintWriter(new FileWriter(fileName, true))){
             printWriter.println(jsonString);
         } catch (IOException e) {}
+    }
+
+    public void closeWebDriver(){
+        webDriver.close();
     }
 
     static class Property{

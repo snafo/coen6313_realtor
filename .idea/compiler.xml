@@ -17,7 +17,7 @@
       <module name="crawler4j" target="1.8" />
       <module name="crawler4j-parent" target="1.5" />
       <module name="database" target="1.7" />
-      <module name="realtor" target="1.5" />
+      <module name="realtor" target="1.7" />
       <module name="webapp" target="1.7" />
     </bytecodeTargetLevel>
   </component>

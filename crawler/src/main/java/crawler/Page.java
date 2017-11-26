@@ -15,17 +15,13 @@ package crawler; /**
  * limitations under the License.
  */
 
-import edu.uci.ics.crawler4j.parser.ParseData;
-import edu.uci.ics.crawler4j.url.WebURL;
+
+import crawler.parser.ParseData;
+import crawler.url.WebURL;
 import org.apache.http.Header;
 import org.apache.http.HttpEntity;
 import org.apache.http.entity.ContentType;
-import org.apache.http.util.ByteArrayBuffer;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import java.io.IOException;
-import java.io.InputStream;
+import org.apache.http.util.EntityUtils;
 import java.nio.charset.Charset;
 
 /**
@@ -34,8 +30,6 @@ import java.nio.charset.Charset;
  * @author Yasser Ganjisaffar
  */
 public class Page {
-
-    protected final Logger logger = LoggerFactory.getLogger(edu.uci.ics.crawler4j.crawler.Page.class);
 
     /**
      * The URL of this page.
@@ -95,69 +89,18 @@ public class Page {
      */
     protected ParseData parseData;
 
-    /**
-     * Whether the content was truncated because the received data exceeded the imposed maximum
-     */
-    protected boolean truncated = false;
 
     public Page(WebURL url) {
         this.url = url;
     }
 
     /**
-     * Read contents from an entity, with a specified maximum. This is a replacement of
-     * EntityUtils.toByteArray because that function does not impose a maximum size.
-     *
-     * @param entity The entity from which to read
-     * @param maxBytes The maximum number of bytes to read
-     * @return A byte array containing maxBytes or fewer bytes read from the entity
-     *
-     * @throws IOException Thrown when reading fails for any reason
-     */
-    protected byte[] toByteArray(HttpEntity entity, int maxBytes) throws IOException {
-        if (entity == null) {
-            return new byte[0];
-        }
-        try (InputStream is = entity.getContent()) {
-            int size = (int) entity.getContentLength();
-            int readBufferLength = size;
-
-            if (readBufferLength <= 0) {
-                readBufferLength = 4096;
-            }
-            // in case when the maxBytes is less than the actual page size
-            readBufferLength = Math.min(readBufferLength, maxBytes);
-
-            // We allocate the buffer with either the actual size of the entity (if available)
-            // or with the default 4KiB if the server did not return a value to avoid allocating
-            // the full maxBytes (for the cases when the actual size will be smaller than maxBytes).
-            ByteArrayBuffer buffer = new ByteArrayBuffer(readBufferLength);
-
-            byte[] tmpBuff = new byte[4096];
-            int dataLength;
-
-            while ((dataLength = is.read(tmpBuff)) != -1) {
-                if (maxBytes > 0 && (buffer.length() + dataLength) > maxBytes) {
-                    truncated = true;
-                    dataLength = maxBytes - buffer.length();
-                }
-                buffer.append(tmpBuff, 0, dataLength);
-                if (truncated) {
-                    break;
-                }
-            }
-            return buffer.toByteArray();
-        }
-    }
-
-    /**
      * Loads the content of this page from a fetched HttpEntity.
      *
      * @param entity HttpEntity
-     * @param maxBytes The maximum number of bytes to read
      * @throws Exception when load fails
      */
-    public void load(HttpEntity entity, int maxBytes) throws Exception {
+    public void load(HttpEntity entity) throws Exception {
 
         contentType = null;
         Header type = entity.getContentType();
@@ -171,19 +114,12 @@ public class Page {
             contentEncoding = encoding.getValue();
         }
 
-        Charset charset;
-        try {
-            charset = ContentType.getOrDefault(entity).getCharset();
-        } catch (Exception e) {
-            logger.warn("parse charset failed: {}", e.getMessage());
-            charset = Charset.forName("UTF-8");
-        }
-
+        Charset charset = ContentType.getOrDefault(entity).getCharset();
         if (charset != null) {
             contentCharset = charset.displayName();
         }
 
-        contentData = toByteArray(entity, maxBytes);
+        contentData = EntityUtils.toByteArray(entity);
     }
 
     public WebURL getWebURL() {
@@ -298,9 +234,5 @@ public class Page {
 
     public void setLanguage(String language) {
         this.language = language;
-    }
-
-    public boolean isTruncated() {
-        return truncated;
     }
 }
