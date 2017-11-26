@@ -25,7 +25,6 @@ import java.util.concurrent.TimeUnit;
  * Created by qinyu on 2017-11-23.
  */
 public class Extractor implements Runnable{
-//    private Parser parser;
     private WebDriver webDriver;
     private Frontier frontier;
     private WebURL seed;
@@ -57,8 +56,8 @@ public class Extractor implements Runnable{
     }
 
     public void extractUrl(WebURL seed) throws IOException, NotAllowedContentException, ParseException, InterruptedException {
-        webDriver.manage().timeouts().pageLoadTimeout(2, TimeUnit.SECONDS);
-        webDriver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        webDriver.manage().timeouts().pageLoadTimeout(5, TimeUnit.SECONDS);
+        webDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         String baseUri = "https://www.centris.ca";
 //        String baseUri = "https://duproprio.com";
         try {
@@ -95,6 +94,7 @@ public class Extractor implements Runnable{
                         }
                     }
                 }
+                failedTime = 0;
             }
 //            writeCSV(urls);
 //            urls.clear();

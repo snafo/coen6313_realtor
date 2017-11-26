@@ -17,7 +17,7 @@ public class StartUp {
         CrawlConfig config = new CrawlConfig();
         config.setMaxDepthOfCrawling(-1);
         config.setMaxPagesToFetch(-1);
-//        config.setPolitenessDelay(500);
+        config.setPolitenessDelay(1000);
         CustomArg customArg = new CustomArg();
 //        Processor processor = new Processor();
 //        customArg.setProcessor(processor);
@@ -27,10 +27,9 @@ public class StartUp {
 //        RobotstxtServer robotstxtServer = new RobotstxtServer(robotstxtConfig,pageFetcher);
         try {
             CrawlController controller = new CrawlController(config,customArg);
-            controller.start(RealtorCrawler.class, 4);
+            controller.start(RealtorCrawler.class, 1);
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 }

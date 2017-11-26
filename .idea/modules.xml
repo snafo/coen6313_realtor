@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/crawler/crawler.iml" filepath="$PROJECT_DIR$/crawler/crawler.iml" />
       <module fileurl="file://$PROJECT_DIR$/crawler4j/crawler4j.iml" filepath="$PROJECT_DIR$/crawler4j/crawler4j.iml" />
       <module fileurl="file://$PROJECT_DIR$/database/database.iml" filepath="$PROJECT_DIR$/database/database.iml" />
+      <module fileurl="file://$PROJECT_DIR$/postprocessor/postprocessor.iml" filepath="$PROJECT_DIR$/postprocessor/postprocessor.iml" />
       <module fileurl="file://$PROJECT_DIR$/realtor.iml" filepath="$PROJECT_DIR$/realtor.iml" />
       <module fileurl="file://$PROJECT_DIR$/webapp/webapp.iml" filepath="$PROJECT_DIR$/webapp/webapp.iml" />
     </modules>
