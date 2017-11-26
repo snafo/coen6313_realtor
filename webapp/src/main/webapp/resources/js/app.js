@@ -32,12 +32,13 @@ angular
         'app.controllers',
         'app.routing',
         'ngFacebook',
-        'ngMap'
+        'ngMap',
+        'ngCookies'
     ])
     .config(function($facebookProvider){
         $facebookProvider.setAppId('174897076426435');
     })
-    .run(['$rootScope', '$state', '$stateParams', 'Restangular', function($rootScope, $state, $stateParams, Restangular) {
+    .run(['$rootScope', '$state', '$stateParams', 'Restangular', '$location', '$cookies', '$http', function($rootScope, $state, $stateParams, Restangular, $location, $cookies, $http){
         $rootScope.$on('$stateChangeSuccess',function(){
             document.body.scrollTop = document.documentElement.scrollTop = 0;
         });
@@ -45,56 +46,33 @@ angular
         $rootScope.$state = $state;
         $rootScope.$stateParams = $stateParams;
 
-        (function(){
+        if (document.getElementById('facebook-jssdk')) {return;}
 
+        // Get the first script element, which we'll use to find the parent node
+        var firstScriptElement = document.getElementsByTagName('script')[0];
 
-        }());
+        // Create a new script element and set its id
+        var facebookJS = document.createElement('script');
+        facebookJS.id = 'facebook-jssdk';
+
+        // Set the new script's source to the source of the Facebook JS SDK
+        facebookJS.src = '//connect.facebook.net/en_US/all.js';
+
+        // Insert the Facebook JS SDK into the DOM
+        firstScriptElement.parentNode.insertBefore(facebookJS, firstScriptElement);
+
+        // keep user logged in after page refresh
+        $rootScope.globals = $cookies.getObject('globals') || {};
+        if ($rootScope.globals.currentUser) {
+            $http.defaults.headers.common.Authorization = 'Basic ' + $rootScope.globals.currentUser.authdata;
+        }
+
+        $rootScope.$on('$locationChangeStart', function (event, next, current) {
+            // redirect to search page if not logged in and trying to access a restricted page
+            var restrictedPage = $.inArray($location.path(), ['/search','/login', '/register']) === -1;
+            var loggedIn = $rootScope.globals.currentUser;
+            if (restrictedPage && !loggedIn) {
+                $location.path('/search');
+            }
+        });
     }]);
-
-
-// angular
-//     .module('app', ['ngRoute', 'ngCookies'])
-//     .config(config)
-//     .run(run);
-//
-// config.$inject = ['$routeProvider', '$locationProvider'];
-// function config($routeProvider, $locationProvider) {
-//     $routeProvider
-//         .when('/', {
-//             controller: 'HomeController',
-//             templateUrl: 'home/home.view.html',
-//             controllerAs: 'vm'
-//         })
-//
-//         .when('/login', {
-//             controller: 'LoginController',
-//             templateUrl: 'login/login.view.html',
-//             controllerAs: 'vm'
-//         })
-//
-//         .when('/register', {
-//             controller: 'RegisterController',
-//             templateUrl: 'register/register.view.html',
-//             controllerAs: 'vm'
-//         })
-//
-//         .otherwise({ redirectTo: '/login' });
-// }
-//
-// run.$inject = ['$rootScope', '$location', '$cookies', '$http'];
-// function run($rootScope, $location, $cookies, $http) {
-//     // keep user logged in after page refresh
-//     $rootScope.globals = $cookies.getObject('globals') || {};
-//     if ($rootScope.globals.currentUser) {
-//         $http.defaults.headers.common['Authorization'] = 'Basic ' + $rootScope.globals.currentUser.authdata;
-//     }
-//
-//     $rootScope.$on('$locationChangeStart', function (event, next, current) {
-//         // redirect to login page if not logged in and trying to access a restricted page
-//         var restrictedPage = $.inArray($location.path(), ['/login', '/register']) === -1;
-//         var loggedIn = $rootScope.globals.currentUser;
-//         if (restrictedPage && !loggedIn) {
-//             $location.path('/login');
-//         }
-//     });
-// }

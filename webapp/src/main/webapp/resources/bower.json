@@ -21,7 +21,8 @@
     "ng-table": "^4.0.0",
     "glyphicons-halflings": "*",
     "ng-facebook": "^0.1.6",
-    "ngmap": "^1.18.4"
+    "ngmap": "^1.18.4",
+    "angular-cookies": "^1.6.7"
   },
   "private": true,
   "resolutions": {

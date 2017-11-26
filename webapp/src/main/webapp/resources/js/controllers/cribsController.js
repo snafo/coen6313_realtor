@@ -1,7 +1,29 @@
 angular.module('app.controllers').
-    controller('cribsController', function ($scope, cribsFactory, QueryServices) {
+    controller('cribsController', function ($scope, $rootScope,cribsFactory, QueryServices) {
 
         $scope.cribs;
+
+        var vm = this;
+
+        vm.user = null;
+
+        initController();
+
+        function initController() {
+            loadCurrentUser();
+        }
+
+        function loadCurrentUser() {
+            QueryServices.getUserByNameCustom($rootScope.globals.currentUser.name)
+                .then(function (result) {
+                    if (result.payLoad[0].name === $rootScope.globals.currentUser.name) {
+                        vm.user = result.payLoad[0].name;
+                    } else {
+                        vm.user = $rootScope.globals.currentUser.name;
+                    }
+                });
+        }
+
 
         QueryServices.getProperty(
             {
