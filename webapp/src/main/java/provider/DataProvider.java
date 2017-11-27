@@ -1,15 +1,19 @@
 package provider;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
 import com.mongodb.MongoClient;
 import com.mongodb.client.*;
+import entity.SimpleProperty;
 import org.bson.Document;
-
 import java.util.*;
 
 /**
  * Created by qinyu on 2017-11-01.
  */
 public class DataProvider {
+    public static Gson gson = new Gson();
+
     public static void main(String[] args){
         DataProvider dataProvider = new DataProvider();
 //        List<Object> output = dataProvider.provideData(OpType.GROUP, Arrays.asList(
@@ -59,9 +63,9 @@ public class DataProvider {
             switch(opType){
                 case FIND:
                     if (conditions.get(0).values().isEmpty()){
-                        output = TransformData(collection.find().limit(limit));
+                        output = TransformDataToSimpleProperty(collection.find().limit(limit));
                     }else{
-                        output = TransformData(collection.find(conditions.get(0)).limit(limit));
+                        output = TransformDataToSimpleProperty(collection.find(conditions.get(0)).limit(limit));
                     }
                     break;
                 case GROUP:
@@ -74,9 +78,19 @@ public class DataProvider {
 
     private static List<Object> TransformData(MongoIterable iterable){
         Iterator it = iterable.iterator();
-        List<Object> output = new ArrayList();
+        List<Object> output = new ArrayList<>();
         while (it.hasNext()) {
-            output.add(((Document) it.next()).toJson());
+            output.add(it.next());
+        }
+        return output;
+    }
+
+    private static List<Object> TransformDataToSimpleProperty(MongoIterable iterable){
+        Iterator it = iterable.iterator();
+        List<Object> output = new ArrayList<>();
+        while (it.hasNext()) {
+            JsonElement jsonElement = gson.toJsonTree(it.next());
+            output.add(gson.fromJson(jsonElement, SimpleProperty.class));
         }
         return output;
     }

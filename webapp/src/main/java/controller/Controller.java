@@ -30,7 +30,10 @@ public class Controller {
             @QueryParam("type") String type,
             @QueryParam("year") String year,
             @QueryParam("source") String source,
-            @QueryParam("limit") Integer limit)
+            @QueryParam("limit") Integer limit,
+            @QueryParam("bedroom") String bedroom,
+            @QueryParam("bathroom") String bathroom,
+            @QueryParam("sublocality") String sublocality)
     {
         Document conditions = new Document();
 
@@ -52,6 +55,18 @@ public class Controller {
 
         if(source != null){
             conditions.append("source", source);
+        }
+
+        if (bedroom != null){
+            conditions.append("rooms.bedroom", parseCondition(bedroom));
+        }
+
+        if (bathroom != null){
+            conditions.append("rooms.bathroom", parseCondition(bathroom));
+        }
+
+        if (bedroom != null){
+            conditions.append("sublocality", parseCondition(sublocality));
         }
 
         return new Response(1, "succeeded", DataProvider.provideData(OpType.FIND, Arrays.asList(conditions), limit));

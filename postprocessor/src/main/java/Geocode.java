@@ -59,7 +59,7 @@ public class Geocode {
                     if (property.getLocation() == null){
                         System.out.println(property.getUrl());
                     }
-//                    writeJson(gson.toJson(property),outFileName);
+                    writeJson(gson.toJson(property),outFileName);
                 }catch (Exception e){
 
                 }
@@ -76,13 +76,13 @@ public class Geocode {
 
     private static void geocoding(PropertyEntity property){
         try {
-//            String address = property.getAddress().split("Neighbour")[0].trim();
-            String address = property.getAddress();
+            String address = property.getAddress().split("Neighbour")[0].trim();
+//            String address = property.getAddress();
 
             GeocodingResult[] results = GeocodingApi
                     .geocode(context, address)
                     .components(
-                            ComponentFilter.locality("Montreal"),
+                            ComponentFilter.administrativeArea ("Communauté-Urbaine-de-Montréal"),
                             ComponentFilter.country("CA")
                     )
                     .language("en")
@@ -92,7 +92,7 @@ public class Geocode {
             for (AddressComponent ac : results[0].addressComponents) {
                 List<AddressComponentType> typeList = Arrays.asList(ac.types);
                 if (typeList.contains(AddressComponentType.NEIGHBORHOOD)) {
-                    property.setNeighbour(ac.longName);
+                    property.setNeighbourhood(ac.longName);
                 } else if (typeList.contains(AddressComponentType.SUBLOCALITY)) {
                     if (property.getSublocality() == null) {
                         property.setSublocality(ac.longName);
