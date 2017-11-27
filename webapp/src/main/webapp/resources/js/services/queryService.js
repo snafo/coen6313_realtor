@@ -20,6 +20,20 @@ angular.module('app.services')
                 .then(stripRestangular);
         }
 
+        function getUserByName(name){
+            return Restangular.one("/user/findbyname/")
+                .get(name)
+                .then(stripRestangular);
+        }
+
+        function getUserByNameCustom(name){
+            return Restangular.one("/user/findbynamecustom")
+                .get({
+                    'name': name
+                })
+                .then(stripRestangular);
+        }
+
         function createUser(param){
             return Restangular.one("/user/create")
                 .post('',param)
@@ -28,6 +42,8 @@ angular.module('app.services')
 
         return {
             getProperty : getProperty,
-            createUser : createUser
+            createUser : createUser,
+            getUserByName : getUserByName,
+            getUserByNameCustom : getUserByNameCustom
         };
     });
