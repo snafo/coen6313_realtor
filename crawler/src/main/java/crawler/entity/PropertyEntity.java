@@ -28,6 +28,7 @@ public class PropertyEntity {
     String firm;
     String updatedDate;
     String image;
+    String propertyId;
 
     public PropertyEntity(){}
 
@@ -189,5 +190,13 @@ public class PropertyEntity {
 
     public void setUnparsedAddress(String unparsedAddress) {
         this.unparsedAddress = unparsedAddress;
+    }
+
+    public String getPropertyId() {
+        return propertyId;
+    }
+
+    public void setPropertyId(String propertyId) {
+        this.propertyId = propertyId;
     }
 }

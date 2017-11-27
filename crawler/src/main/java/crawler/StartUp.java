@@ -27,7 +27,7 @@ public class StartUp {
 //        RobotstxtServer robotstxtServer = new RobotstxtServer(robotstxtConfig,pageFetcher);
         try {
             CrawlController controller = new CrawlController(config,customArg);
-            controller.start(RealtorCrawler.class, 1);
+            controller.start(RealtorCrawler.class, 2);
         } catch (Exception e) {
             e.printStackTrace();
         }

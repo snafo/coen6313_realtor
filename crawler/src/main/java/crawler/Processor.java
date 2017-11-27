@@ -36,8 +36,8 @@ public class Processor {
         gson = new Gson();
         System.setProperty("webdriver.gecko.driver", "C:\\Program Files\\geckodriver\\geckodriver.exe");
         webDriver = new FirefoxDriver();
-        webDriver.manage().timeouts().pageLoadTimeout(2, TimeUnit.SECONDS);
-        webDriver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        webDriver.manage().timeouts().pageLoadTimeout(5, TimeUnit.SECONDS);
+        webDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
 
         source = "centris";
@@ -47,7 +47,7 @@ public class Processor {
     }
 
     public void process(WebURL curURL){
-        Wait<WebDriver> wait = new WebDriverWait(webDriver, 5);
+//        Wait<WebDriver> wait = new WebDriverWait(webDriver, 5);
         Document document;
         PropertyEntity property = new PropertyEntity();
         try {
@@ -61,6 +61,8 @@ public class Processor {
 //                getDuproprioProperty(document, property);
             if (property.getAddress() != null){
                 writeJson(gson.toJson(property),outFileName);
+            }else{
+                System.out.println("skip: " + curURL.getURL());
             }
         }catch (Exception e){
             e.printStackTrace();
@@ -218,10 +220,10 @@ public class Processor {
         return null;
     }
 
-    private void writeJson(String jsonString, String fileName)  {
+    private static synchronized void writeJson(String jsonString, String fileName)  {
         try (PrintWriter printWriter = new PrintWriter(new FileWriter(fileName, true))){
             printWriter.println(jsonString);
-        } catch (IOException e) {}
+        } catch (IOException e) {e.printStackTrace();}
     }
 
     private Integer doubleToInt(Double input){
