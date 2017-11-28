@@ -33,7 +33,8 @@ module.exports = function(grunt) {
             'bower_components/angular-ui-grid/ui-grid.js',
             'bower_components/ng-facebook/ngFacebook.js',
             'bower_components/ngmap/build/scripts/ng-map.min.js',
-            'bower_components/angular-cookies/angular-cookies.min.js'
+            'bower_components/angular-cookies/angular-cookies.min.js',
+            'bower_components/angularUtils-pagination/dirPagination.js'
         ],
 
         cssFiles = [

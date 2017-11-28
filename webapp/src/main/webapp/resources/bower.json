@@ -22,7 +22,8 @@
     "glyphicons-halflings": "*",
     "ng-facebook": "^0.1.6",
     "ngmap": "^1.18.4",
-    "angular-cookies": "^1.6.7"
+    "angular-cookies": "^1.6.7",
+    "angularUtils-pagination": "angular-utils-pagination#^0.11.1"
   },
   "private": true,
   "resolutions": {

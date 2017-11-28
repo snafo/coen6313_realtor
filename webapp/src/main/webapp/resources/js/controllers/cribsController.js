@@ -1,14 +1,33 @@
-angular.module('app.controllers').
-    controller('cribsController', function ($scope, $rootScope,cribsFactory, QueryServices) {
+angular.module('app.controllers',['ngMap']).
+    controller('cribsController', function ($scope, $rootScope,cribsFactory, QueryServices,NgMap) {
 
         $scope.cribs;
 
         var vm = this;
 
         vm.user = null;
+        $scope.newListing = {};
+        $scope.priceInfo = {
+            min:0,
+            max:1000000
+        };
+
+    NgMap.getMap().then(function (map) {
+        $scope.map = map;
+    });
+
+    $scope.showProp = function(event, prop) {
+        $scope.selectedProp = prop;
+        $scope.map.showInfoWindow('myInfoWindow', this);
+    };
+
+    cribsFactory.getCribs().then(function (data) {
+            $scope.cribs=data.data;
+        }, function(error) {
+            console.log(error);
+        });
 
         initController();
-
         function initController() {
             loadCurrentUser();
         }
@@ -24,7 +43,6 @@ angular.module('app.controllers').
                 });
         }
 
-
         QueryServices.getProperty(
             {
                 'price':'{lt:500000}',
@@ -34,15 +52,8 @@ angular.module('app.controllers').
                 'limit': 1
             }
         ).then(function (response){
-            console.log(response.payLoad);
+            //console.log(response.payLoad);
         });
-
-        $scope.priceInfo = {
-            min:0,
-            max:1000000
-        };
-
-        $scope.newListing = {};
 
         $scope.addCrib = function (newListing) {
             newListing.image='resources/image/default-crib';
@@ -67,13 +78,4 @@ angular.module('app.controllers').
             $scope.existingListing = false;
         };
 
-        cribsFactory.getCribs().then(function (data) {
-            $scope.cribs=data.data;
-        }, function(error) {
-            console.log(error);
-        });
-        //
-        // $scope.sayHello = function () {
-        //     console.log("hello");
-        // }
     });

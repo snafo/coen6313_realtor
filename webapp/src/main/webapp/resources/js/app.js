@@ -33,7 +33,8 @@ angular
         'app.routing',
         'ngFacebook',
         'ngMap',
-        'ngCookies'
+        'ngCookies',
+        'angularUtils.directives.dirPagination'
     ])
     .config(function($facebookProvider){
         $facebookProvider.setAppId('174897076426435');
