@@ -40,10 +40,10 @@ public class Processor {
         webDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
 
-        source = "centris";
-        outFileName = "centris_info.csv";
-//        source = "duproprio";
-//        outFileName = "duproprio_info.json";
+//        source = "centris";
+//        outFileName = "centris_info.csv";
+        source = "duproprio";
+        outFileName = "duproprio_info.json";
     }
 
     public void process(WebURL curURL){
@@ -57,8 +57,8 @@ public class Processor {
             document = Jsoup.parse(webDriver.getPageSource());
             property.setSource(source);
             property.setUrl(curURL.getURL());
-            getCentrisProperty(document, property);
-//                getDuproprioProperty(document, property);
+//            getCentrisProperty(document, property);
+                getDuproprioProperty(document, property);
             if (property.getAddress() != null){
                 writeJson(gson.toJson(property),outFileName);
             }else{

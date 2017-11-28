@@ -37,8 +37,8 @@ public class Extractor implements Runnable{
         this.frontier = frontier;
         failedTime = 0;
         threshold = 10;
-        seed = generateSeed("https://www.centris.ca/en/properties~for-sale~montreal-island?view=List&uc=0");
-//        seed = generateSeed("https://duproprio.com/en/search/list?search=true&regions%5B0%5D=6&is_for_sale=1&with_builders=1&parent=1&pageNumber=1&sort=-published_at");
+//        seed = generateSeed("https://www.centris.ca/en/properties~for-sale~montreal-island?view=List&uc=0");
+        seed = generateSeed("https://duproprio.com/en/search/list?search=true&regions%5B0%5D=6&is_for_sale=1&with_builders=1&parent=1&pageNumber=1&sort=-published_at");
     }
 
     public void run(){
@@ -58,8 +58,8 @@ public class Extractor implements Runnable{
     public void extractUrl(WebURL seed) throws IOException, NotAllowedContentException, ParseException, InterruptedException {
         webDriver.manage().timeouts().pageLoadTimeout(5, TimeUnit.SECONDS);
         webDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        String baseUri = "https://www.centris.ca";
-//        String baseUri = "https://duproprio.com";
+//        String baseUri = "https://www.centris.ca";
+        String baseUri = "https://duproprio.com";
         try {
             webDriver.get(seed.getURL());
         }catch (Exception e){}
@@ -70,8 +70,8 @@ public class Extractor implements Runnable{
         while(true) {
             document = Jsoup.parse(webDriver.getPageSource());
             document.setBaseUri(baseUri);
-            Elements elements = document.select("#divMainResult > div > a.btn.a-more-detail");
-//            Elements elements = document.select("div.search-results-listings-list__item-bottom-container > a");
+//            Elements elements = document.select("#divMainResult > div > a.btn.a-more-detail");
+            Elements elements = document.select("div.search-results-listings-list__item-bottom-container > a");
             if (elements != null) {
                 for (Element element : elements) {
                     Elements outgoingElems = element.getElementsByAttribute("href");
@@ -100,14 +100,14 @@ public class Extractor implements Runnable{
 //            urls.clear();
 
             try {
-//                try {
-//                    webDriver.findElements(By.cssSelector(".info-sessions-popup__close-icon")).get(0).click();
-//                }catch (Exception e){}
-//                try {
-//                    webDriver.findElements(By.cssSelector(".email-alerts-form__close-icon")).get(0).click();
-//                }catch (Exception e){}
-                webDriver.findElements(By.cssSelector("#divWrapperPager > ul > li.next > a")).get(0).click();
-//                webDriver.findElements(By.cssSelector("#react-component-SearchPagination > nav > div.pagination__arrow.pagination__arrow--right")).get(0).click();
+                try {
+                    webDriver.findElements(By.cssSelector(".info-sessions-popup__close-icon")).get(0).click();
+                }catch (Exception e){}
+                try {
+                    webDriver.findElements(By.cssSelector(".email-alerts-form__close-icon")).get(0).click();
+                }catch (Exception e){}
+//                webDriver.findElements(By.cssSelector("#divWrapperPager > ul > li.next > a")).get(0).click();
+                webDriver.findElements(By.cssSelector("#react-component-SearchPagination > nav > div.pagination__arrow.pagination__arrow--right")).get(0).click();
                 Thread.sleep(1000);
             }catch (Exception e){
                 if (++failedTime >= threshold){
@@ -138,5 +138,4 @@ public class Extractor implements Runnable{
             }
         } catch (IOException e) {}
     }
-
 }

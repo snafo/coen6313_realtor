@@ -29,6 +29,7 @@ public class PropertyEntity {
     String updatedDate;
     String image;
     String propertyId;
+    String locality;
 
     public PropertyEntity(){}
 
@@ -198,5 +199,13 @@ public class PropertyEntity {
 
     public void setPropertyId(String propertyId) {
         this.propertyId = propertyId;
+    }
+
+    public String getLocality() {
+        return locality;
+    }
+
+    public void setLocality(String locality) {
+        this.locality = locality;
     }
 }
