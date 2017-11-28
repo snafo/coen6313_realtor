@@ -34,6 +34,8 @@ public class PropertyEntity {
 
     String sublocality;
 
+    String locality;
+
     GeocodingResult geocode;
 
     String placeId;
@@ -216,5 +218,13 @@ public class PropertyEntity {
 
     public void setPropertyId(String propertyId) {
         this.propertyId = propertyId;
+    }
+
+    public String getLocality() {
+        return locality;
+    }
+
+    public void setLocality(String locality) {
+        this.locality = locality;
     }
 }

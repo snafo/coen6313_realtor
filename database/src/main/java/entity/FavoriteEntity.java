@@ -1,24 +1,31 @@
 package entity;
 
-import com.sun.javafx.beans.IDProperty;
-
 import javax.persistence.*;
 
 @Entity
 @Table(name = "favorite", schema = "public")
 public class FavoriteEntity {
+    private int id;
     private int uid;
     private String propertyId;
 
     @Id
+    @Column(name = "id")
+    @SequenceGenerator(name="favorite_id_seq", sequenceName="favorite_id_seq", allocationSize=1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE ,generator="favorite_id_seq")
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     @Column(name = "uid")
-    @SequenceGenerator(name="user_id_seq", sequenceName="user_id_seq", allocationSize=1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE ,generator="user_id_seq")
     public int getUid() {
         return uid;
     }
 
-    @Id
     @Column(name = "propertyId")
     public String getPropertyId() {
         return propertyId;

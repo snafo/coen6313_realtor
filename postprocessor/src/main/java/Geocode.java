@@ -22,20 +22,32 @@ import java.util.regex.Pattern;
  * Created by qinyu on 2017-11-25.
  */
 public class Geocode {
+//    private static String source = "duproprio";
+    private static String source = "centris";
     private static final String key = "AIzaSyD3SYQsdQHKQMqLYSLjApEQTLysxkI7h_k";
-    private static final String fileName = "centris_info.csv";
-    private static final String outFileName = "centris_info_processed.csv";
+    private static String fileName;
+    private static String outFileName;
     private static GeoApiContext context;
     private static Gson gson;
     private static final String ROOM_REGEX = "[0-9]+(\\+[0-9]+)? +[a-zA-Z\\/ ]+";
-    private static final String KEY_REGEX = "(?<=\\/)\\d+(?=\\?)";
+    private static String key_regex;
     private static Pattern roomPattern;
     private static Pattern keyPattern;
 
     public static void main(String[] args) throws InterruptedException, ApiException, IOException {
         int count = 0;
+        if(source.equals("centris")){
+            fileName = "centris_info.csv";
+            outFileName = "centris_info_processed.csv";
+            key_regex = "(?<=\\/)\\d+(?=\\?)";
+        }else if (source.equals("duproprio")){
+            fileName = "duproprio_info.json";
+            outFileName = "duproprio_info_processed.json";
+            key_regex = "(?<=sale\\/).+";
+        }
+
         roomPattern = Pattern.compile(ROOM_REGEX);
-        keyPattern = Pattern.compile(KEY_REGEX);
+        keyPattern = Pattern.compile(key_regex);
 //        gson = new GsonBuilder().setPrettyPrinting().create();
         gson = new GsonBuilder().create();
         context = new GeoApiContext.Builder()
@@ -51,6 +63,7 @@ public class Geocode {
             while((propertyStr = bf.readLine()) != null){
                 try{
                     property = gson.fromJson(propertyStr, PropertyEntity.class);
+                    convertType(property);
                     idCoding(property);
                     geocoding(property);
                     roomCoding(property);
@@ -61,23 +74,46 @@ public class Geocode {
                     }
                     writeJson(gson.toJson(property),outFileName);
                 }catch (Exception e){
-
+                    e.printStackTrace();
                 }
 
                 System.out.println(count);
-                if (++count>=1000){
-                    break;
-                }
+//                if (++count>=1000){
+//                    break;
+//                }
 
-                Thread.sleep(20);
+//                Thread.sleep(20);
             }
+        }
+    }
+
+    private static void convertType(PropertyEntity property){
+        try {
+            String type = property.getType().toLowerCase();
+            if (type.equals("condominium")) {
+                type = "condo";
+            } else if (type.contains("loft")) {
+                type = "studio";
+            } else if (type.equals("bungalow")) {
+                type = "house";
+            } else if (type.equals("semi")) {
+                type = "house";
+            }
+            property.setType(type);
+        }catch (Exception e){
+
         }
     }
 
     private static void geocoding(PropertyEntity property){
         try {
-            String address = property.getAddress().split("Neighbour")[0].trim();
-//            String address = property.getAddress();
+            String address = property.getAddress();
+            property.setUnparsedAddress(address);
+            if (source.equals("centris")){
+                address = address.split("Neighbour")[0].trim();
+            } else if (source.equals("duproprio")){
+                address = address.split("Montréal \\/ l\'Île")[0].trim();
+            }
 
             GeocodingResult[] results = GeocodingApi
                     .geocode(context, address)
@@ -93,10 +129,16 @@ public class Geocode {
                 List<AddressComponentType> typeList = Arrays.asList(ac.types);
                 if (typeList.contains(AddressComponentType.NEIGHBORHOOD)) {
                     property.setNeighbourhood(ac.longName);
-                } else if (typeList.contains(AddressComponentType.SUBLOCALITY)) {
+                }
+
+                if (typeList.contains(AddressComponentType.SUBLOCALITY)) {
                     if (property.getSublocality() == null) {
                         property.setSublocality(ac.longName);
                     }
+                }
+
+                if (typeList.contains(AddressComponentType.LOCALITY)){
+                    property.setLocality(ac.longName);
                 }
             }
 
@@ -113,16 +155,26 @@ public class Geocode {
     }
 
     private static void roomCoding(PropertyEntity property){
-        String roomDescrip;
-        if (property.getRooms()!=null && property.getRooms().getDescription()!=null){
-            roomDescrip = property.getRooms().getDescription();
-        }else {
-            roomDescrip = property.getRoom();
-            property.setRooms(new Room());
-            property.getRooms().setDescription(roomDescrip);
-        }
+        try {
+            String roomDescrip;
+            if (property.getRooms() != null && property.getRooms().getDescription() != null) {
+                roomDescrip = property.getRooms().getDescription();
+            } else {
+                roomDescrip = property.getRoom();
+                property.setRooms(new Room());
+                property.getRooms().setDescription(roomDescrip);
+            }
 
-        List<String> rooms = findRoomNumbers(roomDescrip);
+            List<String> rooms = findRoomNumbers(roomDescrip);
+            if (source.equals("centris")) {
+                setRoomNumbersCentris(rooms, property);
+            } else if (source.equals("duproprio")) {
+                setRoomNumbersDuprorio(rooms, property);
+            }
+        }catch (Exception e){}
+    }
+
+    private static void setRoomNumbersCentris(List<String> rooms, PropertyEntity property){
         if (!rooms.isEmpty()){
             for (String room : rooms){
                 int number = getRoomNumber(room);
@@ -134,6 +186,22 @@ public class Geocode {
                     property.getRooms().setBathroom(number);
                 }
             }
+        }
+    }
+
+    private static void setRoomNumbersDuprorio(List<String> rooms, PropertyEntity property){
+        if (!rooms.isEmpty()){
+            property.getRooms().setBedroom(0);
+            property.getRooms().setBathroom(0);
+            for (String room : rooms){
+                int number = getRoomNumber(room);
+                if (room.toLowerCase().contains("bedroom")){
+                    property.getRooms().setBedroom(number);
+                } else if (room.toLowerCase().contains("bath")){
+                    property.getRooms().setBathroom(property.getRooms().getBathroom()+number);
+                }
+            }
+            property.getRooms().setTotal(property.getRooms().getBathroom()+property.getRooms().getBedroom());
         }
     }
 
