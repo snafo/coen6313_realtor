@@ -1,4 +1,4 @@
-package crawler.entity;
+package entity;
 
 import com.google.maps.model.GeocodingResult;
 
@@ -9,31 +9,53 @@ import java.util.List;
  */
 public class PropertyEntity {
     String source;
-    String url;
-    String type;
-    String address;
-    String unparsedAddress;
-    Double price;
-    String room;
-    String discription;
-    Integer year;
-    Double area;
-    Location location;
-    String neighbourhood;
-    String sublocality;
-    GeocodingResult geocode;
-    String placeId;
-    Room rooms;
-    List<Broker> brokers;
-    String firm;
-    String updatedDate;
-    String image;
-    String propertyId;
 
-    public PropertyEntity(){}
+    String url;
+
+    String type;
+
+    String address;
+
+    String unparsedAddress;
+
+    Double price;
+
+    String room;
+
+    String discription;
+
+    Integer year;
+
+    Double area;
+
+    Location location;
+
+    String neighbourhood;
+
+    String sublocality;
+
+    GeocodingResult geocode;
+
+    String placeId;
+
+    Room rooms;
+
+    List<Broker> brokers;
+
+    String firm;
+
+    String updatedDate;
+
+    String image;
+
+    String propertyId;
 
     public String getSource() {
         return source;
+    }
+
+    public void setSource(String source) {
+        this.source = source;
     }
 
     public String getUrl() {
@@ -42,10 +64,6 @@ public class PropertyEntity {
 
     public void setUrl(String url) {
         this.url = url;
-    }
-
-    public void setSource(String source) {
-        this.source = source;
     }
 
     public String getType() {
@@ -62,6 +80,14 @@ public class PropertyEntity {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getUnparsedAddress() {
+        return unparsedAddress;
+    }
+
+    public void setUnparsedAddress(String unparsedAddress) {
+        this.unparsedAddress = unparsedAddress;
     }
 
     public Double getPrice() {
@@ -182,14 +208,6 @@ public class PropertyEntity {
 
     public void setImage(String image) {
         this.image = image;
-    }
-
-    public String getUnparsedAddress() {
-        return unparsedAddress;
-    }
-
-    public void setUnparsedAddress(String unparsedAddress) {
-        this.unparsedAddress = unparsedAddress;
     }
 
     public String getPropertyId() {
