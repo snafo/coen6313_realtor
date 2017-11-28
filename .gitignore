@@ -7,6 +7,7 @@ deploy
 *.iml
 target/
 logs
+.idea
 *.log
 *.class
 *.war
