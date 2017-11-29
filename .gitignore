@@ -24,4 +24,5 @@ bower_components/
 ngmin/
 dist/
 lib/
+workspace.xml
 
