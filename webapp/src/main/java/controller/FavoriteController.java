@@ -81,11 +81,11 @@ public class FavoriteController {
     @POST
     @Path("/create")
     public Response createFavorite(FavoriteParam favoriteParam){
-        if (favoriteParam.getUid() <= 0 || favoriteParam.getPropertyId() == null){
+        if (favoriteParam.getUid() <= 0 || favoriteParam.getpropertyid() == null){
             return new Response(0, "The user id or property ID couldn't be null", null);
         }
 
-        List<Object> properties = MongoDataProvider.provideData(OpType.FIND,new ArrayList<>(Arrays.asList(new Document("propertyId", favoriteParam.getPropertyId()))),null );
+        List<Object> properties = MongoDataProvider.provideData(OpType.FIND,new ArrayList<>(Arrays.asList(new Document("propertyId", favoriteParam.getpropertyid()))),null );
         if (properties.isEmpty()){
             return new Response(0, "Could not find the according property", null);
         }
@@ -93,7 +93,7 @@ public class FavoriteController {
 
         FavoriteEntity newFavorite = new FavoriteEntity();
         newFavorite.setUid(favoriteParam.getUid());
-        newFavorite.setPropertyId(favoriteParam.getPropertyId());
+        newFavorite.setPropertyId(favoriteParam.getpropertyid());
         UserEntity userEntity;
         FavoriteMetricEntity favoriteMetricEntity = null;
         if ((userEntity = userDao.findById(favoriteParam.getUid()))!= null){
@@ -113,12 +113,12 @@ public class FavoriteController {
     @Path("/remove")
     public Response removeFavorite(FavoriteParam favoriteParam){
 
-        if (favoriteParam.getUid() <= 0 || favoriteParam.getPropertyId() == null){
+        if (favoriteParam.getUid() <= 0 || favoriteParam.getpropertyid() == null){
             return new Response(0, "The user id or property ID couldn't be null", null);
         }
 
         int uid = favoriteParam.getUid();
-        String propertyId = favoriteParam.getPropertyId();
+        String propertyId = favoriteParam.getpropertyid();
         FavoriteEntity favoriteEntity;
 
         UserEntity userEntity = userDao.findById(uid);

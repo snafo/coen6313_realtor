@@ -4,7 +4,7 @@ angular
   .module('app.routing', ["app.services"])
   .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 
-    $urlRouterProvider.otherwise('/search');
+    //$urlRouterProvider.otherwise('/search');
 
     $stateProvider
       .state('search',{
