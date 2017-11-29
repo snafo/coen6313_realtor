@@ -30,6 +30,10 @@ public class SimpleProperty {
 
     String propertyId;
 
+    String locality;
+
+    Room rooms;
+
     public String getSource() {
         return source;
     }
@@ -132,5 +136,21 @@ public class SimpleProperty {
 
     public void setPropertyId(String propertyId) {
         this.propertyId = propertyId;
+    }
+
+    public String getLocality() {
+        return locality;
+    }
+
+    public void setLocality(String locality) {
+        this.locality = locality;
+    }
+
+    public Room getRooms() {
+        return rooms;
+    }
+
+    public void setRooms(Room rooms) {
+        this.rooms = rooms;
     }
 }

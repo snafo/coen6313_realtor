@@ -19,4 +19,6 @@ public interface FavoriteDao extends CrudRepository<FavoriteEntity, Integer> {
 
     @Query(value = "select * from public.favorite where uid =?1", nativeQuery = true)
     List<FavoriteEntity> findByUidCustom(int uid);
+
+    FavoriteEntity findByUidAndPropertyId(int uid, String propertyId);
 }

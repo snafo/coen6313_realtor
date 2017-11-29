@@ -1,6 +1,7 @@
 package entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "user", schema = "public")
@@ -8,6 +9,7 @@ public class UserEntity {
     private int id;
     private String name;
     private String password;
+    private FavoriteMetricEntity favoriteMetric;
 
     @Id
     @Column(name = "id")
@@ -37,6 +39,15 @@ public class UserEntity {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @OneToOne(fetch = FetchType.EAGER, mappedBy = "user")
+    public FavoriteMetricEntity getFavoriteMetric() {
+        return favoriteMetric;
+    }
+
+    public void setFavoriteMetric(FavoriteMetricEntity favoriteMetric) {
+        this.favoriteMetric = favoriteMetric;
     }
 
     @Override

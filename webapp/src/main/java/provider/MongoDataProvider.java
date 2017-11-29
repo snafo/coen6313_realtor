@@ -11,11 +11,11 @@ import java.util.*;
 /**
  * Created by qinyu on 2017-11-01.
  */
-public class DataProvider {
+public class MongoDataProvider {
     public static Gson gson = new Gson();
 
     public static void main(String[] args){
-        DataProvider dataProvider = new DataProvider();
+        MongoDataProvider dataProvider = new MongoDataProvider();
 //        List<Object> output = dataProvider.provideData(OpType.GROUP, Arrays.asList(
 //                new Document("$match", new Document("price", new Document("$gt", 1000000))),
 //                new Document("$group", new Document("_id", 0).append("count", new Document("$sum", 1)))

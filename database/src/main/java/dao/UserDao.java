@@ -16,6 +16,8 @@ public interface UserDao extends CrudRepository<UserEntity, Integer> {
 
     List<UserEntity> findByName(String name);
 
+    UserEntity findById(Integer id);
+
     @Query(value = "select * from public.user where name =?1", nativeQuery = true)
     List<UserEntity> findByNameCustom(String name);
 }

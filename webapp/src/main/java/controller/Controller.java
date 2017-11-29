@@ -2,7 +2,7 @@ package controller;
 
 import com.google.gson.Gson;
 import org.bson.Document;
-import provider.DataProvider;
+import provider.MongoDataProvider;
 import provider.OpType;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -69,7 +69,7 @@ public class Controller {
             conditions.append("sublocality", parseCondition(sublocality));
         }
 
-        return new Response(1, "succeeded", DataProvider.provideData(OpType.FIND, Arrays.asList(conditions), limit));
+        return new Response(1, "succeeded", MongoDataProvider.provideData(OpType.FIND, Arrays.asList(conditions), limit));
     }
 
 
@@ -107,7 +107,7 @@ public class Controller {
         conditions.add(new Document("$group", new Document("_id", "aggregation").append("count", new Document("$sum", 1))));
 
 
-        return new Response(1, "succeeded", DataProvider.provideData(OpType.GROUP, conditions, null));
+        return new Response(1, "succeeded", MongoDataProvider.provideData(OpType.GROUP, conditions, null));
     }
 
     private Object parseCondition(String input){

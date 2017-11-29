@@ -26,7 +26,7 @@ public class FavoriteEntity {
         return uid;
     }
 
-    @Column(name = "propertyId")
+    @Column(name = "property_id")
     public String getPropertyId() {
         return propertyId;
     }

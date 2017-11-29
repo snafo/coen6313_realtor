@@ -5,9 +5,9 @@ package entity;
  */
 public class Room {
     String description;
-    int total;
-    int bedroom;
-    int bathroom;
+    Integer total;
+    Integer bedroom;
+    Integer bathroom;
 
     public String getDescription() {
         return description;
@@ -17,27 +17,27 @@ public class Room {
         this.description = description;
     }
 
-    public int getTotal() {
+    public Integer getTotal() {
         return total;
     }
 
-    public void setTotal(int total) {
+    public void setTotal(Integer total) {
         this.total = total;
     }
 
-    public int getBedroom() {
+    public Integer getBedroom() {
         return bedroom;
     }
 
-    public void setBedroom(int bedroom) {
+    public void setBedroom(Integer bedroom) {
         this.bedroom = bedroom;
     }
 
-    public int getBathroom() {
+    public Integer getBathroom() {
         return bathroom;
     }
 
-    public void setBathroom(int bathroom) {
+    public void setBathroom(Integer bathroom) {
         this.bathroom = bathroom;
     }
 }
