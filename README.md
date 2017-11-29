@@ -1,5 +1,24 @@
+# Feature 
 
-integrate login page, search page, facebook login/logout button.  (chao)
+##  search page 
+### search criteria: 
+* lowest price, 
+* highest price, 
+* house/condo, 
+* area,
+* year, 
+* #bedrooms, 
+* #bathrooms,
+* agent, 
+* description)<h2> 
+##  _Display the hot plot on google map_
+## main page <h2>
+###  Display search result 
+### Display client favorite list
+### _Recommand client interested properties_
+### _Display client interested agents and # property hold_
+### _Perdict sale price based on user input_
+
 
 ? machine learning, price suggestion.  
 add pid to favorate, to DB  (chao)
