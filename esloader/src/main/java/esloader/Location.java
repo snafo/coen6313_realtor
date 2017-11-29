@@ -1,4 +1,4 @@
-package crawler.entity;
+package esloader;
 
 /**
  * Created by qinyu on 2017-11-26.

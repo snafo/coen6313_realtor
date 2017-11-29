@@ -11,7 +11,9 @@ import java.net.InetAddress;
 
 
 public class ESClient {
-    private static String clusterName = "staging-es";
+    private static String clusterName = "realtor";
+    private static String nodeName = "node_1";
+
 
     private static final Logger logger = LoggerFactory.getLogger(ESClient.class);
 
@@ -21,14 +23,15 @@ public class ESClient {
         try {
             Settings settings = Settings.builder().
                     put("cluster.name", clusterName).
+                    put("node.name", nodeName).
                     put("client.transport.sniff", true).
                     put("client.transport.ping_timeout","60s").build();
 
             transportClient = new PreBuiltTransportClient(settings);
-            transportClient.addTransportAddress(new InetSocketTransportAddress(InetAddress.getByName("DEV-CSDR-001.dev.mgcorp.co"), 9300));
-            transportClient.addTransportAddress(new InetSocketTransportAddress(InetAddress.getByName("DEV-CSDR-002.dev.mgcorp.co"), 9300));
-            transportClient.addTransportAddress(new InetSocketTransportAddress(InetAddress.getByName("DEV-CSDR-003.dev.mgcorp.co"), 9300));
-
+            transportClient.addTransportAddress(new InetSocketTransportAddress(InetAddress.getByName("localhost"), 9300));
+//            transportClient.addTransportAddress(new InetSocketTransportAddress(InetAddress.getByName("DEV-CSDR-001.dev.mgcorp.co"), 9300));
+//            transportClient.addTransportAddress(new InetSocketTransportAddress(InetAddress.getByName("DEV-CSDR-002.dev.mgcorp.co"), 9300));
+//            transportClient.addTransportAddress(new InetSocketTransportAddress(InetAddress.getByName("DEV-CSDR-003.dev.mgcorp.co"), 9300));
         }
         catch (Exception e) {
             logger.error("Error while getting ES client: {}", e.getMessage());

@@ -50,6 +50,9 @@ public class MongoClient {
         Map<String, Object> output = new HashMap<>();
         output.put("propertyId", esEntity.getPropertyId());
         output.put("discription", esEntity.getDiscription());
+        output.put("location", esEntity.getLocation());
+        output.put("price", esEntity.getPrice());
+        output.put("area", esEntity.getArea());
         return output;
     }
 }

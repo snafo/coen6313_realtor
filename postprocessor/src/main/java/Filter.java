@@ -14,15 +14,22 @@ import java.util.regex.Pattern;
 public class Filter {
     public static void main(String[] args) throws IOException {
         String source = "duproprio";
-        String fileName = "";
+//        String source = "centris";
+        String fileName="";
+        String ourtfileName="";
+        String filteredFile="";
         Gson gson = new Gson();
         String regex = "\\d";
         int count = 0;
         Pattern pattern = Pattern.compile(regex);
         if(source.equals("centris")){
             fileName = "centris_info_processed.csv";
+            ourtfileName = "centris_info_final.json";
+            filteredFile = "filtered_centris_infon.json";
         }else if (source.equals("duproprio")){
             fileName = "duproprio_info_processed.json";
+            ourtfileName = "duproprio_info_final.json";
+            filteredFile = "filtered_duproprio_info.json";
         }
         try(
                 BufferedReader bf = new BufferedReader(new FileReader(new File(fileName)))
@@ -38,6 +45,9 @@ public class Filter {
                         System.out.println(property.getAddress());
                         System.out.println(property.getUnparsedAddress());
                         count++;
+                        Geocode.writeJson(gson.toJson(property),filteredFile);
+                    } else {
+                        Geocode.writeJson(gson.toJson(property),ourtfileName);
                     }
                 }catch (Exception e){
                     e.printStackTrace();

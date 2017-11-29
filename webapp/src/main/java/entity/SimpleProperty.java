@@ -34,6 +34,8 @@ public class SimpleProperty {
 
     Room rooms;
 
+    String discription;
+
     public String getSource() {
         return source;
     }
@@ -152,5 +154,13 @@ public class SimpleProperty {
 
     public void setRooms(Room rooms) {
         this.rooms = rooms;
+    }
+
+    public String getDiscription() {
+        return discription;
+    }
+
+    public void setDiscription(String discription) {
+        this.discription = discription;
     }
 }

@@ -14,8 +14,8 @@ import java.util.*;
 public class MongoDataProvider {
     public static Gson gson = new Gson();
 
-    public static void main(String[] args){
-        MongoDataProvider dataProvider = new MongoDataProvider();
+//    public static void main(String[] args){
+//        MongoDataProvider dataProvider = new MongoDataProvider();
 //        List<Object> output = dataProvider.provideData(OpType.GROUP, Arrays.asList(
 //                new Document("$match", new Document("price", new Document("$gt", 1000000))),
 //                new Document("$group", new Document("_id", 0).append("count", new Document("$sum", 1)))
@@ -25,7 +25,7 @@ public class MongoDataProvider {
 //                new Document("price", new Document("$lt", 1000000))
 //                .append("area", new Document("$gt",  10000))
 //        ));
-        System.out.print("");
+//        System.out.print("");
 
         //        AggregateIterable<Document> output = collection.aggregate(Arrays.asList(
 //                new Document("$unwind", "$views"),
@@ -36,7 +36,7 @@ public class MongoDataProvider {
 //                        .append("crawler.url", "$views.crawler.url")
 //                        .append("date", "$views.date"))
 //        ));
-    }
+//    }
 
     public static List<Object> provideData( OpType opType, List<Document> conditions, Integer limitInput) {
         int limit = 10000;
