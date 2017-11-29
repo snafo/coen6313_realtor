@@ -1,172 +1,264 @@
 
-    <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="#">Realtor</a>
-        </div>
-        <ul class="nav navbar-nav" >
-          <li class="active" ><a href="#!/search">New Search</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li ng-show="vm.user == null"> <a href="#!/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-          <li ng-show="vm.user == null"> <a href="#!/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-          <li ng-show="vm.user != null"> <a href="#!/register"><span class="glyphicon glyphicon-user"></span> {{vm.user}}</a></li>
-          <li ng-show="vm.user != null"> <a href="#!/login"><span class="glyphicon glyphicon-log-out"></span> Sign Out</a></li>
-        </ul>
-        <!--<div class="navbar-header">-->
-          <!--<a class="navbar-brand" href="#">welcome {{vm.user}}</a>-->
-        <!--</div>-->
-      </div>
-    </nav>
-
-    <div class="container">
-        <!-- Min and Max Price Selection -->
-      <div class="col-sm-12 price-form">
-        <div class="row price-form-row">
-          <div class="col-sm-6">
-            <div class="input-group">
-              <span class="input-group-addon">Min Price</span>
-              <select name="minPrice" id="minPrice" ng-model="priceInfo.min" class="form-control">
-                <option value="100000">$100,000</option>
-                <option value="200000">$200,000</option>
-                <option value="300000">$300,000</option>
-                <option value="400000">$400,000</option>
-                <option value="500000">$500,000</option>
-                <option value="600000">$600,000</option>
-                <option value="700000">$700,000</option>
-                <option value="800000">$800,000</option>
-                <option value="900000">$900,000</option>
-                <option value="1000000">$1,000,000</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="col-sm-6">
-            <div class="input-group">
-              <span class="input-group-addon">Max Price</span>
-              <select name="maxPrice" id="maxPrice" ng-model="priceInfo.max" class="form-control">
-                <option value="100000">$100,000</option>
-                <option value="200000">$200,000</option>
-                <option value="300000">$300,000</option>
-                <option value="400000">$400,000</option>
-                <option value="500000">$500,000</option>
-                <option value="600000">$600,000</option>
-                <option value="700000">$700,000</option>
-                <option value="800000">$800,000</option>
-                <option value="900000">$900,000</option>
-                <option value="1000000">$1,000,000</option>
-              </select>
-            </div>
-          </div>
-        </div>
-
-        <button
-              class="btn btn-primary"
-              ng-click="showMap = !showMap"
-              ng-show="!showMap">Map
-        </button>
-
-        <button
-              class="btn btn-danger"
-              ng-click="showMap = !showMap"
-              ng-show="showMap">Close
-        </button>
-
-        <!--Google Map-->
-        <div class="listing-form" ng-if="showMap  == true">
-          <ng-map style="height: 500px" zoom="11" center="45.517974, -73.649795">
-            <info-window id="myInfoWindow">
-              <div ng-non-bindable >
-                  type: {{selectedProp.type}} <br/>
-                  price:{{selectedProp.price}} <br/>
-                  year: {{selectedProp.year}} <br/>
-                  area: {{selectedProp.area}} <br/>
-                  total rooms: {{selectedProp.rooms.total}} <br/>
-                  <a href="{{selectedProp.url}}" target="_blank">Go To</a> <br/>
-                  <img ng-src="{{ selectedProp.image }}"class="img-rounded" alt="Cinque Terre" style="width:160px;height:90px;">
-              </div>
-            </info-window>
-            <marker ng-repeat="crib in cribs"
-                    position="{{crib.location.lat}},{{crib.location.lng}}"
-                    title="{{crib.address}}"
-                    id="{{crib.propertyId}}"
-                    on-click="showProp(event, crib)">
-            </marker>
-          </ng-map>
-
-        </div>
-
-      </div>
+<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Realtor</a>
     </div>
-
-    <!-- Real Estate Listings  has no less or detail button-->
-    <!--<div class="container">-->
-      <!--<div class="col-sm-4" ng-repeat="crib in cribs">-->
-        <!--<div class="thumbnail">-->
-          <!--<img ng-src="resources/images/{{crib.image}}.jpg" alt="">-->
-          <!--<div class="caption">-->
-            <!--<h3>{{crib.address}}</h3>-->
-            <!--<p><strong>Type:</strong>{{crib.type}}</p>-->
-            <!--<p><strong>Description:</strong>{{crib.description}}</p>-->
-            <!--<p><strong>Price:</strong>{{crib.price | currency}}</p>-->
-          <!--</div>-->
-        <!--</div>-->
-      <!--</div>-->
+    <ul class="nav navbar-nav" >
+      <li class="active" ><a href="#!/search">New Search</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li ng-show="vm.user == null"> <a href="#!/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li ng-show="vm.user == null"> <a href="#!/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      <li ng-show="vm.user != null"> <a href="#!/register"><span class="glyphicon glyphicon-user"></span> {{vm.user}}</a></li>
+      <li ng-show="vm.user != null"> <a href="#!/login"><span class="glyphicon glyphicon-log-out"></span> Sign Out</a></li>
+    </ul>
+    <!--<div class="navbar-header">-->
+    <!--<a class="navbar-brand" href="#">welcome {{vm.user}}</a>-->
     <!--</div>-->
+  </div>
+</nav>
+
+<!-- Min and Max Price Selection -->
+<div class="container">
+  <div class="col-sm-12 price-form">
+    <div class="row price-form-row">
+      <div class="col-sm-6">
+        <div class="input-group">
+          <span class="input-group-addon">Min Price</span>
+          <select name="minPrice" id="minPrice" ng-model="priceInfo.min" class="form-control">
+            <option value="100000">$100,000</option>
+            <option value="200000">$200,000</option>
+            <option value="300000">$300,000</option>
+            <option value="400000">$400,000</option>
+            <option value="500000">$500,000</option>
+            <option value="600000">$600,000</option>
+            <option value="700000">$700,000</option>
+            <option value="800000">$800,000</option>
+            <option value="900000">$900,000</option>
+            <option value="1000000">$1,000,000</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <div class="input-group">
+          <span class="input-group-addon">Max Price</span>
+          <select name="maxPrice" id="maxPrice" ng-model="priceInfo.max" class="form-control">
+            <option value="100000">$100,000</option>
+            <option value="200000">$200,000</option>
+            <option value="300000">$300,000</option>
+            <option value="400000">$400,000</option>
+            <option value="500000">$500,000</option>
+            <option value="600000">$600,000</option>
+            <option value="700000">$700,000</option>
+            <option value="800000">$800,000</option>
+            <option value="900000">$900,000</option>
+            <option value="1000000">$1,000,000</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <button
+            class="btn btn-primary"
+            ng-click="showMap = !showMap"
+            ng-show="!showMap">Map
+    </button>
+
+    <button
+            class="btn btn-danger"
+            ng-click="showMap = !showMap"
+            ng-show="showMap">Close
+    </button>
+
+    <!--Google Map-->
+    <div class="listing-form" ng-if="showMap  == true">
+      <ng-map style="height: 500px" zoom="11" center="45.517974, -73.649795">
+        <info-window id="myInfoWindow">
+          <div ng-non-bindable >
+            type: {{selectedProp.type}} <br/>
+            price:{{selectedProp.price}} <br/>
+            year: {{selectedProp.year}} <br/>
+            area: {{selectedProp.area}} <br/>
+            total rooms: {{selectedProp.rooms.total}} <br/>
+            <a href="{{selectedProp.url}}" target="_blank">Go To</a> <br/>
+            <img ng-src="{{ selectedProp.image }}"class="img-rounded" alt="Cinque Terre" style="width:160px;height:90px;">
+          </div>
+        </info-window>
+        <marker ng-if="showSearch == true"
+                ng-repeat="crib in cribs"
+                position="{{crib.location.lat}},{{crib.location.lng}}"
+                title="{{crib.address}}"
+                id="{{crib.propertyId}}"
+                on-click="showProp(event, crib)">
+        </marker>
+        <info-window id="myFavoriteWindow">
+          <div ng-non-bindable >
+            type: {{selectedProp.type}} <br/>
+            price:{{selectedProp.price}} <br/>
+            year: {{selectedProp.year}} <br/>
+            area: {{selectedProp.area}} <br/>
+            total rooms: {{selectedProp.rooms.total}} <br/>
+            <a href="{{selectedProp.url}}" target="_blank">Go To</a> <br/>
+            <img ng-src="{{ selectedProp.image }}"class="img-rounded" alt="Cinque Terre" style="width:160px;height:90px;">
+          </div>
+        </info-window>
+        <marker ng-if="showFavorite == true"
+                ng-repeat="favorite in favorites"
+                position="{{favorite.location.lat}},{{favorite.location.lng}}"
+                title="{{favorite.address}}"
+                id="{{favorite.propertyId}}"
+                on-click="showProp(event, favorite)">
+        </marker>
+
+      </ng-map>
+
+      <a href="#" ng-click="showSearch = !showSearch">
+        <label id="search" >Search Result</label></a>
+      <a href="#" ng-click="showFavorite = !showFavorite">
+        <label id="showFavor" >Favorite</label></a>
+    </div>
+
+  </div>
+</div>
 
 
-    <!-- Real Estate Listings -->
-    <div class="container">
-      <div class="col-sm-4" dir-paginate="crib in cribs | itemsPerPage:10 |cribsFilter:priceInfo | orderBy: '+price'">
-        <div class="thumbnail">
-          <img ng-src="{{ crib.image }}" alt="">
-          <div class="caption">
-            <div ng-hide="showDetails === true">
-              <h3><i class="glyphicon glyphicon-tag"></i> {{crib.price | currency}}</h3>
-              <h6><i class="glyphicon glyphicon-home"></i> {{crib.address}}
-              </h6>
+<div class="container">
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#seachResult">Search Result</a></li>
+    <li><a data-toggle="tab" href="#favor">Favorite</a></li>
+    <li><a data-toggle="tab" href="#interests">You might interest</a></li>
+    <li><a data-toggle="tab" href="#agent">Agents for you</a></li>
+  </ul>
 
-            </div>
+  <div class="tab-content">
+    <!-- Menu Search -->
+    <div id="seachResult" class="tab-pane fade in active">
 
-            <button class="btn btn-xs btn-success"
-                    ng-hide="showDetails === true"
-                    ng-click="showDetails = !showDetails">
-              Details
-            </button>
-            <span class="label label-primary label-sm">{{crib.type}}</span>
-            <!--<span class="label label-default label-sm">{{crib.source}}</span>-->
-            <a href="{{crib.url}}" target="_blank">{{crib.source}} </a>
+      <!-- Real Estate Listings -->
+      <div class="container">
+        <div class="col-sm-4" dir-paginate="crib in cribs | itemsPerPage:10 |cribsFilter:priceInfo | orderBy: '+price'">
+          <div class="thumbnail">
+            <img ng-src="{{ crib.image }}" alt="">
+            <div class="caption">
+              <div ng-hide="showDetails === true">
+                <h3><i class="glyphicon glyphicon-tag"></i> {{crib.price | currency}}</h3>
+                <h6><i class="glyphicon glyphicon-home"></i> {{crib.address}}
+                </h6>
 
-            <button
-                    class="btn btn-xs btn-primary"
-                    ng-show="showDetails  === true"
-                    ng-click="deleteCrib()">
-              Save
-            </button>
+              </div>
 
-            <button class="btn btn-xs btn-danger"
-                    ng-show="showDetails === true"
-                    ng-click="showDetails = !showDetails">
-              Close
-            </button>
+              <button class="btn btn-xs btn-success"
+                      ng-hide="showDetails === true"
+                      ng-click="showDetails = !showDetails">
+                Details
+              </button>
+              <span class="label label-primary label-sm">{{crib.type}}</span>
+              <a href="{{crib.url}}" target="_blank">{{crib.source}} </a>
 
-            <div class="details" ng-show="showDetails === true">
-              <h4>
-                <span class="label label-primary">Beds: {{crib.rooms.bedroom}}</span>
-                <span class="label label-primary">Baths: {{crib.rooms.bathroom}}</span>
-                <span class="label label-primary">SqFt: {{crib.area}}</span>
-              </h4>
-              <p><h6>{{crib.discription}}</h6></p>
+              <button
+                      class="btn btn-xs btn-primary"
+                      ng-show="showDetails  === true"
+
+                      ng-click="deleteCrib()">
+                Save
+              </button>
+
+              <button class="btn btn-xs btn-danger"
+                      ng-show="showDetails === true"
+                      ng-disabled="isDisabled"
+                      ng-click="showDetails = !showDetails">
+                Close
+              </button>
+
+              <div class="details" ng-show="showDetails === true">
+                <h4>
+                  <span class="label label-primary">Beds: {{crib.rooms.bedroom}}</span>
+                  <span class="label label-primary">Baths: {{crib.rooms.bathroom}}</span>
+                  <span class="label label-primary">SqFt: {{crib.area}}</span>
+                </h4>
+                <p><h6>{{crib.discription}}</h6></p>
+              </div>
             </div>
           </div>
         </div>
+        <div>
+          <dir-pagination-controls
+                  max-size="12"
+                  direction-links="true"
+                  boundary-links="true">
+          </dir-pagination-controls>
+        </div>
+
       </div>
-      <div>
-        <dir-pagination-controls
-                max-size="12"
-                direction-links="true"
-                boundary-links="true">
-        </dir-pagination-controls>
+    </div>
+
+    <!-- Menu Favorite -->
+    <div id="favor" class="tab-pane fade">
+
+      <!-- Real Estate Listings -->
+      <div class="container">
+        <div class="col-sm-4" dir-paginate="favorite in favorites | itemsPerPage:10 |cribsFilter:priceInfo | orderBy: '+price'">
+          <div class="thumbnail">
+            <img ng-src="{{ favorite.image }}" alt="">
+            <div class="caption">
+              <div ng-hide="showDetails === true">
+                <h3><i class="glyphicon glyphicon-tag"></i> {{favorite.price | currency}}</h3>
+                <h6><i class="glyphicon glyphicon-home"></i> {{favorite.address}}
+                </h6>
+
+              </div>
+
+              <button class="btn btn-xs btn-success"
+                      ng-hide="showDetails === true"
+                      ng-click="showDetails = !showDetails">
+                Details
+              </button>
+              <span class="label label-primary label-sm">{{favorite.type}}</span>
+              <a href="{{favorite.url}}" target="_blank">{{favorite.source}} </a>
+
+              <button
+                      class="btn btn-xs btn-primary"
+                      ng-hide="showDiv"
+                      ng-click="deleteCrib()">
+                Save
+              </button>
+
+              <button class="btn btn-xs btn-danger"
+                      ng-show="showDetails === true"
+                      ng-click="showDetails = !showDetails">
+                Close
+              </button>
+
+              <div class="details" ng-show="showDetails === true">
+                <h4>
+                  <span class="label label-primary">Beds: {{favorite.rooms.bedroom}}</span>
+                  <span class="label label-primary">Baths: {{favorite.rooms.bathroom}}</span>
+                  <span class="label label-primary">SqFt: {{favorite.area}}</span>
+                </h4>
+                <p><h6>{{favorite.discription}}</h6></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <dir-pagination-controls
+                  max-size="12"
+                  direction-links="true"
+                  boundary-links="true">
+          </dir-pagination-controls>
+        </div>
+
       </div>
+    </div>
+    <div id="interests" class="tab-pane fade">
+
 
     </div>
+    <div id="agent" class="tab-pane fade">
+      <h3>Menu 3</h3>
+      <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+    </div>
+  </div>
+</div>

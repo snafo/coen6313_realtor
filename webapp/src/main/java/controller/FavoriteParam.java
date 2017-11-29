@@ -6,8 +6,8 @@ public class FavoriteParam {
     @QueryParam("uid")
     private int uid;
 
-    @QueryParam("propertyId")
-    private String propertyId;
+    @QueryParam("propertyid")
+    private String propertyid;
 
 
     public int getUid() {
@@ -18,11 +18,11 @@ public class FavoriteParam {
         this.uid = uid;
     }
 
-    public String getPropertyId() {
-        return propertyId;
+    public String getpropertyid() {
+        return propertyid;
     }
 
-    public void setPropertyId(String propertyId) {
-        this.propertyId = propertyId;
+    public void setpropertyid(String propertyid) {
+        this.propertyid = propertyid;
     }
 }
