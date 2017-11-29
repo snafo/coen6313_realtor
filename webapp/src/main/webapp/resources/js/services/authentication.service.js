@@ -16,8 +16,6 @@ angular
 
                 QueryServices.getUserByNameCustom(name)
                     .then(function (result) {
-                        console.log(result.payLoad);
-
                         if (result.payLoad[0].name !== null && result.payLoad[0].password === password) {
                             response = { success: true };
                         } else {
