@@ -40,10 +40,33 @@ angular.module('app.services')
                 .then(stripRestangular);
         }
 
+        function createFavorite(param){
+            return Restangular.one("/favorite/create")
+                .post('',param)
+                .then(stripRestangular);
+        }
+
+        function removeFavorite(param){
+            return Restangular.one("/favorite/remove")
+                .post('',param)
+                .then(stripRestangular);
+        }
+
+        function getFavoriteByUidCustom(uid){
+            return Restangular.one("/favorite/findbyuidcustom")
+                .get({
+                    'uid': uid
+                })
+                .then(stripRestangular);
+        }
+
         return {
             getProperty : getProperty,
             createUser : createUser,
             getUserByName : getUserByName,
-            getUserByNameCustom : getUserByNameCustom
+            getUserByNameCustom : getUserByNameCustom,
+            createFavorite : createFavorite,
+            removeFavorite : removeFavorite,
+            getFavoriteByUidCustom : getFavoriteByUidCustom
         };
     });

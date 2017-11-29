@@ -72,9 +72,10 @@ angular
             // redirect to search page if not logged in and trying to access a restricted page
             // var restrictedPage = $.inArray($location.path(), ['/search','/login', '/register']) === -1;
             var loggedIn = $rootScope.globals.currentUser;
+            console.log(loggedIn);
             // if (restrictedPage && !loggedIn) {
-            if (!loggedIn) {
-                $location.path('/search');
-            }
+            // if (!loggedIn) {
+            //     $location.path('/search');
+            // }
         });
     }]);

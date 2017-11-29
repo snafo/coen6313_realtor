@@ -10,7 +10,7 @@
     <ul class="nav navbar-nav navbar-right">
       <li ng-show="vm.user == null"> <a href="#!/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
       <li ng-show="vm.user == null"> <a href="#!/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-      <li ng-show="vm.user != null"> <a href="#!/register"><span class="glyphicon glyphicon-user"></span> {{vm.user}}</a></li>
+      <li ng-show="vm.user != null"> <a href="#!/register"><span class="glyphicon glyphicon-user"></span> {{vm.user.name}}</a></li>
       <li ng-show="vm.user != null"> <a href="#!/login"><span class="glyphicon glyphicon-log-out"></span> Sign Out</a></li>
     </ul>
     <!--<div class="navbar-header">-->
@@ -93,17 +93,17 @@
                 id="{{crib.propertyId}}"
                 on-click="showProp(event, crib)">
         </marker>
-        <info-window id="myFavoriteWindow">
-          <div ng-non-bindable >
-            type: {{selectedProp.type}} <br/>
-            price:{{selectedProp.price}} <br/>
-            year: {{selectedProp.year}} <br/>
-            area: {{selectedProp.area}} <br/>
-            total rooms: {{selectedProp.rooms.total}} <br/>
-            <a href="{{selectedProp.url}}" target="_blank">Go To</a> <br/>
-            <img ng-src="{{ selectedProp.image }}"class="img-rounded" alt="Cinque Terre" style="width:160px;height:90px;">
-          </div>
-        </info-window>
+        <!--<info-window id="myFavoriteWindow">-->
+          <!--<div ng-non-bindable >-->
+            <!--type: {{selectedProp.type}} <br/>-->
+            <!--price:{{selectedProp.price}} <br/>-->
+            <!--year: {{selectedProp.year}} <br/>-->
+            <!--area: {{selectedProp.area}} <br/>-->
+            <!--total rooms: {{selectedProp.rooms.total}} <br/>-->
+            <!--<a href="{{selectedProp.url}}" target="_blank">Go To</a> <br/>-->
+            <!--<img ng-src="{{ selectedProp.image }}"class="img-rounded" alt="Cinque Terre" style="width:160px;height:90px;">-->
+          <!--</div>-->
+        <!--</info-window>-->
         <marker ng-if="showFavorite == true"
                 ng-repeat="favorite in favorites"
                 position="{{favorite.location.lat}},{{favorite.location.lng}}"
@@ -160,8 +160,8 @@
               <button
                       class="btn btn-xs btn-primary"
                       ng-show="showDetails  === true"
-
-                      ng-click="deleteCrib()">
+                      ng-click="createFavorite(crib)"
+                      ng-disabled="saveDisabled">
                 Save
               </button>
 
@@ -220,9 +220,9 @@
 
               <button
                       class="btn btn-xs btn-primary"
-                      ng-hide="showDiv"
-                      ng-click="deleteCrib()">
-                Save
+                      ng-show="showDetails  === true"
+                      ng-click="removeFavorite(favorite)">
+                Remove
               </button>
 
               <button class="btn btn-xs btn-danger"
