@@ -16,7 +16,7 @@
 ###  Display search result 
 ### Display client favorite list
 ### _Recommand client interested properties_
-### _Display client interested agents and # property hold_
+### _Display client interested agents and # property hold_ (possible to list interested properties??
 ### _Perdict sale price based on user input_
 
 
