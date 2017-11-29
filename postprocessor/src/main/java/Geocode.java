@@ -78,9 +78,9 @@ public class Geocode {
                 }
 
                 System.out.println(count);
-//                if (++count>=1000){
-//                    break;
-//                }
+                if (++count>=2000){
+                    break;
+                }
 
 //                Thread.sleep(20);
             }
