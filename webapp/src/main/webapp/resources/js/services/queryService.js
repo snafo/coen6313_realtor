@@ -64,6 +64,18 @@ angular.module('app.services')
                 .then(stripRestangular);
         }
 
+        function getPrices(){
+            return Restangular.one("/heatmap/price")
+                .get()
+                .then(stripRestangular);
+        }
+
+        function estimatePrices(){
+            return Restangular.one("/estimate/price")
+                .get()
+                .then(stripRestangular);
+        }
+
         return {
             getProperty : getProperty,
             createUser : createUser,
@@ -71,6 +83,8 @@ angular.module('app.services')
             getUserByNameCustom : getUserByNameCustom,
             createFavorite : createFavorite,
             removeFavorite : removeFavorite,
-            getFavoriteByUidCustom : getFavoriteByUidCustom
+            getFavoriteByUidCustom : getFavoriteByUidCustom,
+            getPrices : getPrices,
+            estimatePrices : estimatePrices
         };
     });
