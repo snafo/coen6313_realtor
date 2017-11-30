@@ -13,8 +13,8 @@ import java.util.regex.Pattern;
  */
 public class Filter {
     public static void main(String[] args) throws IOException {
-        String source = "duproprio";
-//        String source = "centris";
+//        String source = "duproprio";
+        String source = "centris";
         String fileName="";
         String ourtfileName="";
         String filteredFile="";

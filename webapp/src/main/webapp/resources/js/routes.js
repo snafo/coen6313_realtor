@@ -26,6 +26,11 @@ angular
                 templateUrl : 'resources/views/searchResult.html',
                 controller : 'RecommendController'
             })
+            .state('app.agent',{
+                url:'/agent',
+                templateUrl : 'resources/views/agent.html',
+                controller : 'AgentController'
+            })
             .state('appSimple',{
                 abstract: true,
                 templateUrl: 'resources/views/simple.html'
