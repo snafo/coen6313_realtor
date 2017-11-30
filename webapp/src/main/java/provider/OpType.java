@@ -5,5 +5,6 @@ package provider;
  */
 public enum OpType {
     FIND,
+    FIND_HEAT,
     GROUP
 }

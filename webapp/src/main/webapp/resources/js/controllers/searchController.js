@@ -1,23 +1,54 @@
 
 angular
     .module('app.controllers')
-    .controller('SearchController', function ($scope, $facebook) {
+    .controller('SearchController', function ($scope, $rootScope, $location, SearchResults, QueryServices, $cacheFactory) {
+        $scope.param = {};
+        var name = $rootScope.globals.currentUser.name;
+        // var cache = $cacheFactory('realtor');
 
-        $scope.$on('fb.auth.authResponseChange', function() {
-            $scope.status = $facebook.isConnected();
-            if($scope.status) {
-                $facebook.api('/me').then(function(user) {
-                    $scope.user = user;
-                });
-            }
-        });
+        $scope.search = function(){
+            var param = getParam($scope.param);
 
-        $scope.loginToggle = function() {
-            if($scope.status) {
-                $facebook.logout();
-            } else {
-                $facebook.login();
-            }
+            QueryServices.getProperty(param).then(function (response){
+                if (response.code === 1){
+                    // if (cache.get(name) !== null){
+                    //     cache.remove(name);
+                    // }
+                    // cache.put(name, response.payLoad);
+                    SearchResults.cleanProperty();
+                    SearchResults.setProperty(response.payLoad);
+                    $location.path('/searchResult');
+                }
+            });
         };
 
-});
+        function getParam(inputParam){
+            var param = {};
+            if (inputParam.minPrice){
+                param.minPrice = '{gte:' + inputParam.minPrice + '}';
+            }
+            if (inputParam.maxPrice){
+                param.maxPrice = inputParam.maxPrice;
+            }
+            if (inputParam.type){
+                param.type = inputParam.type;
+            }
+            if (inputParam.bedroom){
+                param.bedroom = '{gte:' + inputParam.bedroom + '}';
+            }
+            if (inputParam.bathroom){
+                param.bathroom = '{gte:' +  inputParam.bathroom + '}';
+            }
+            if (inputParam.year){
+                param.year = '{gte:' + inputParam.year + '}';
+
+            }if (inputParam.region){
+                param.region = inputParam.region;
+            }
+
+            if (inputParam.keywords){
+                param.keywords = inputParam.keywords;
+            }
+            return param;
+        }
+    });

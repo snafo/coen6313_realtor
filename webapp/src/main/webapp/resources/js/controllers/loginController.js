@@ -1,11 +1,6 @@
 
-    angular
-        .module('app.controllers')
-        .controller('LoginController', LoginController);
-
-    LoginController.$inject = ['$location', 'AuthenticationService', 'FlashService'];
-
-    function LoginController($location, AuthenticationService, FlashService) {
+angular.module('app.controllers')
+    .controller('LoginController', function LoginController($location, AuthenticationService, FlashService) {
         var vm = this;
 
         vm.login = login;
@@ -20,11 +15,11 @@
             AuthenticationService.Login(vm.name, vm.password, function (response) {
                 if (response.success) {
                     AuthenticationService.SetCredentials(vm.name, vm.password);
-                    $location.path('/main');
+                    $location.path('/searchResult');
                 } else {
                     FlashService.Assertion(response.message);
                     vm.dataLoading = false;
                 }
             });
         }
-    }
+    });

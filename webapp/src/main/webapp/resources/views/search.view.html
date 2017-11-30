@@ -1,51 +1,59 @@
 
 
-<div class="container">
-    <nav class="navbar navbar-toggleable-md navbar-light bg-faded ">
-        <p align="right">
-            <input type="button" onclick="location.href='#!/login';" class="btn btn-primary" value="Login" />
-            <input type="button" id="login-btn" class="btn btn-info" ng-click="loginToggle()"value="Facebook">
-            </input>
-            <span ng-if="status" class="message">
-                You are <strong>Logged in</strong> as <em>{{user.first_name}} {{user.last_name}}</em>
-            </span>
-            <span ng-if="!status" class="message">
-                You are <strong>not</strong> logged in.
-            </span>
-        <div id="fb-root"> </div>
-        </p>
-    </nav>
-</div>
+<!--<div class="container">-->
+    <!--<nav class="navbar navbar-toggleable-md navbar-light bg-faded ">-->
+        <!--<p align="right">-->
+            <!--<input type="button" onclick="location.href='#!/login';" class="btn btn-primary" value="Login" />-->
+            <!--<input type="button" id="login-btn" class="btn btn-info" ng-click="loginToggle()"value="Facebook">-->
+            <!--</input>-->
+            <!--<span ng-if="status" class="message">-->
+                <!--You are <strong>Logged in</strong> as <em>{{user.first_name}} {{user.last_name}}</em>-->
+            <!--</span>-->
+            <!--<span ng-if="!status" class="message">-->
+                <!--You are <strong>not</strong> logged in.-->
+            <!--</span>-->
+        <!--<div id="fb-root"> </div>-->
+        <!--</p>-->
+    <!--</nav>-->
+<!--</div>-->
 
 <div class="col-md-6 col-md-offset-3">
-    <form name="form" ng-submit="search()" role="form">
+    <div>
         <div class="form-group" ng-class="{ 'has-error': form.lastName.$dirty && form.lowestPrice.$error.required }">
             <label>Lowest Price</label>
-            <input type="text" name="lowestPrice" id="lowestPrice" class="form-control" ng-model="search.lowestPrice" required />
+            <input type="text" name="lowestPrice" id="lowestPrice" class="form-control" ng-model="param.minPrice" required />
             <span ng-show="form.lastName.$dirty && form.lowestPrice.$error.required" class="help-block">lowest Price is required</span>
         </div>
         <div class="form-group" >
             <label >Highest Price</label>
-            <input type="text" name="highestPrice" id="highestPrice" class="form-control" ng-model="search.highestPrice" />
+            <input type="text" name="highestPrice" id="highestPrice" class="form-control" ng-model="param.maxPrice" />
         </div>
         <div class="form-group" >
             <label >Property Type</label>
-            <input type="text" name="propertyType" id="propertyType" class="form-control" ng-model="search.propertyType" />
+            <input type="text" name="propertyType" id="propertyType" class="form-control" ng-model="param.type" />
         </div>
         <div class="form-group" >
             <label >Number of Bedrooms</label>
-            <input type="text" name="numBedrooms" id="numBedrooms" class="form-control" ng-model="search.numBedrooms" />
+            <input type="text" name="numBedrooms" id="numBedrooms" class="form-control" ng-model="param.bedroom" />
         </div>
         <div class="form-group" >
             <label >Number of Bathrooms</label>
-            <input type="text" name="numBathrooms" id="numBathrooms" class="form-control" ng-model="search.numBathrooms" />
+            <input type="text" name="numBathrooms" id="numBathrooms" class="form-control" ng-model="param.bathroom" />
         </div>
         <div class="form-group" >
             <label >Year</label>
-            <input type="text" name="year" id="year" class="form-control" ng-model="search.year" />
+            <input type="text" name="year" id="year" class="form-control" ng-model="param.year" />
+        </div>
+        <div class="form-group" >
+            <label >Region</label>
+            <input type="text" name="region" id="region" class="form-control" ng-model="param.region" />
+        </div>
+        <div class="form-group" >
+            <label >Keywords</label>
+            <input type="text" name="keywords" id="keywords" class="form-control" ng-model="param.keywords" />
         </div>
         <div class="form-actions">
-            <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary">Search</button>
+            <button type="submit" ng-click="search()" class="btn btn-primary">Search</button>
         </div>
-    </form>
+    </div>
 </div>

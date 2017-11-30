@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.mongodb.MongoClient;
 import com.mongodb.client.*;
+import entity.HeatMap;
 import entity.SimpleProperty;
 import org.bson.Document;
 import java.util.*;
@@ -71,6 +72,8 @@ public class MongoDataProvider {
                 case GROUP:
                     output = TransformData(collection.aggregate(conditions));
                     break;
+                case FIND_HEAT:
+                    output = TransformDataToHeatMap(collection.find());
             }
             return output;
         }
@@ -91,6 +94,16 @@ public class MongoDataProvider {
         while (it.hasNext()) {
             JsonElement jsonElement = gson.toJsonTree(it.next());
             output.add(gson.fromJson(jsonElement, SimpleProperty.class));
+        }
+        return output;
+    }
+
+    private static List<Object> TransformDataToHeatMap(MongoIterable iterable){
+        Iterator it = iterable.iterator();
+        List<Object> output = new ArrayList<>();
+        while (it.hasNext()) {
+            JsonElement jsonElement = gson.toJsonTree(it.next());
+            output.add(gson.fromJson(jsonElement, HeatMap.class));
         }
         return output;
     }

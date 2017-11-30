@@ -1,5 +1,6 @@
+
 angular.module('app.controllers').
-    controller('cribsController', function ($scope, $rootScope,cribsFactory, favoriteFactory, QueryServices,NgMap) {
+controller('FavoriteController', function ($scope, $rootScope, QueryServices, NgMap) {
 
     $scope.cribs;
 
@@ -21,20 +22,20 @@ angular.module('app.controllers').
 
     $scope.showProp = function(event, prop) {
         $scope.selectedProp = prop;
-        $scope.map.showInfoWindow('myInfoWindow',prop.propertyId);
+        $scope.map.showInfoWindow('myInfoWindow',prop.propertyId.toString());
     };
 
     cribsFactory.getCribs().then(function (data) {
         $scope.cribs=data.data;
-        }, function(error) {
+    }, function(error) {
         console.log(error);
     });
 
-    // favoriteFactory.getFavorites().then(function (favorites) {
-    //     $scope.favorites = favorites.data;
-    // }, function(error) {
-    //     console.log(error);
-    // });
+// favoriteFactory.getFavorites().then(function (favorites) {
+//     $scope.favorites = favorites.data;
+// }, function(error) {
+//     console.log(error);
+// });
 
     initController();
     function initController() {
@@ -59,17 +60,17 @@ angular.module('app.controllers').
 
     }
 
-    // QueryServices.getProperty(
-    //     {
-    //         'price':'{lt:500000}',
-    //         'year':'{gt:1990}',
-    //         'type': 'House',
-    //         'area': '{gt:1000}',
-    //         'limit': 1
-    //     }
-    // ).then(function (response){
-    //     //console.log(response.payLoad);
-    // });
+// QueryServices.getProperty(
+//     {
+//         'price':'{lt:500000}',
+//         'year':'{gt:1990}',
+//         'type': 'House',
+//         'area': '{gt:1000}',
+//         'limit': 1
+//     }
+// ).then(function (response){
+//     //console.log(response.payLoad);
+// });
 
     $scope.createFavorite = function (crib) {
         var param = {uid: vm.user.id ,propertyid: crib.propertyId};
@@ -97,5 +98,5 @@ angular.module('app.controllers').
             }
         });
     };
-
 });
+

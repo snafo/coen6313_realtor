@@ -10,11 +10,15 @@ angular.module('app.services')
         function getProperty(param) {
             return Restangular.one("/property/get")
                 .get({
+                    'region' : param.region,
+                    'price' : param.minPrice,
+                    // 'maxPrice' : param.maxPrice,
                     'source': param.source,
                     'area': param.area,
-                    'price': param.domain,
-                    'year': param.startDate,
-                    'type': param.endDate,
+                    'bedroom': param.bedroom,
+                    'bathroom': param.bathroom,
+                    'year': param.year,
+                    'type': param.type,
                     'limit': param.limit
                 })
                 .then(stripRestangular);
