@@ -20,10 +20,10 @@
 
 <div class="container" >
     <ul class="nav nav-tabs" style="margin-bottom: 10px">
-        <li><a data-toggle="tab" ui-sref-active="active" ui-sref="app.searchResult">Search Result</a></li>
-        <li><a data-toggle="tab" ui-sref-active="active" ui-sref="app.favorite">Favorite</a></li>
-        <li><a data-toggle="tab" ui-sref-active="active" ui-sref="app.recommend">You might interest</a></li>
-        <li><a data-toggle="tab" ui-sref-active="active" ui-sref="app.agent">Agents for you</a></li>
+            <li ng-class="{'active' : currentTab == 'result'}"><a data-toggle="tab" ui-sref-active="active" ui-sref="app.searchResult">Search Result</a></li>
+            <li ng-class="{'active' : currentTab == 'favorite'}"><a data-toggle="tab" ui-sref-active="active" ui-sref="app.favorite">Favorite</a></li>
+            <li ng-class="{'active' : currentTab == 'recommend'}"><a data-toggle="tab" ui-sref-active="active" ui-sref="app.recommend">You might interest</a></li>
+            <li ng-class="{'active' : currentTab == 'agent'}"><a data-toggle="tab" ui-sref-active="active" ui-sref="app.agent">Agents for you</a></li>
     </ul>
 
     <div class="tab-content">

@@ -1,6 +1,7 @@
 package controller;
 
 import com.google.gson.Gson;
+import com.mongodb.Mongo;
 import dao.FavoriteDao;
 import dao.UserDao;
 import entity.FavoriteEntity;
@@ -182,6 +183,18 @@ public class Controller {
 
 
         return new Response(1, "succeeded", MongoDataProvider.provideData(OpType.GROUP, conditions, null));
+    }
+
+    @GET
+    @Path("/params")
+    public Response getParams(){
+        Map<String, List<Object>> paramMap = new HashMap<>();
+        List<Object> regionsList = new ArrayList<>();
+        regionsList.addAll(MongoDataProvider.provideDistinctData("locality"));
+        regionsList.addAll(MongoDataProvider.provideDistinctData("sublocality"));
+        paramMap.put("region", regionsList);
+        paramMap.put("type", MongoDataProvider.provideDistinctData("type"));
+        return new Response(1, null, paramMap);
     }
 
     private Object parseCondition(String input){

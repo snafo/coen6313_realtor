@@ -1,6 +1,7 @@
 
 angular.module('app.controllers').
 controller('FavoriteController', function ($scope, $rootScope, QueryServices, NgMap) {
+    $rootScope.currentTab = 'favorite';
 
     $scope.cribs;
 

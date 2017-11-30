@@ -1,6 +1,7 @@
 
 angular.module('app.controllers').
 controller('RecommendController', function ($scope, $rootScope, QueryServices, NgMap) {
+    $rootScope.currentTab = 'recommend';
 
     $scope.cribs;
 
