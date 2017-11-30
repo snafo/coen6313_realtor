@@ -5,6 +5,26 @@
             <label for="address">Enter your address</label>
             <input type="text" name="address" id="address" class="form-control" ng-model="vm.address" required />
         </div>
+        <div class="form-group" >
+            <label for="type">Enter your property type</label>
+            <input type="text" name="type" id="type" class="form-control" ng-model="vm.type" required />
+        </div>
+        <div class="form-group" >
+            <label for="area">Enter your property area</label>
+            <input type="text" name="area" id="area" class="form-control" ng-model="vm.area" required />
+        </div>
+        <div class="form-group" >
+            <label for="year">Enter your property year</label>
+            <input type="text" name="year" id="year" class="form-control" ng-model="vm.year" required />
+        </div>
+        <div class="form-group" >
+            <label for="bedroom">Enter your number of bedroom</label>
+            <input type="text" name="bedroom" id="bedroom" class="form-control" ng-model="vm.bedroom" required />
+        </div>
+        <div class="form-group" >
+            <label for="bathroom">Enter your number of bathroom</label>
+            <input type="text" name="bathroom" id="bathroom" class="form-control" ng-model="vm.bathroom" required />
+        </div>
         <div class="form-actions">
             <button type="submit" class="btn btn-primary">Submit</button>
         </div>
@@ -13,6 +33,10 @@
         <p>Latitude:{{lat}} <br/>
         </p>
         <p>Longitude:{{lng}} <br/>
+        </p>
+        <p>Training Data size:{{size}} <br/>
+        </p>
+        <p>Estimate Price:{{price}} <br/>
         </p>
     </div>
 </div>

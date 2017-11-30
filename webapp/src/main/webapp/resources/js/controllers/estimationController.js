@@ -16,23 +16,24 @@ angular
                     if (status == google.maps.GeocoderStatus.OK) {
                         $scope.lat = results[0].geometry.location.lat();
                         $scope.lng = results[0].geometry.location.lng();
-
-                        QueryServices.estimatePrices()
+                        var param = {
+                            'lat' : $scope.lat,
+                            'lng' : $scope.lng,
+                            'type': vm.type,
+                            'area': vm.area,
+                            'year': vm.year,
+                            'bedroom': vm.bedroom,
+                            'bathroom': vm.bathroom
+                        };
+                        QueryServices.estimatePrice(param)
                             .then(function (result){
                                 if (result.code === 1 ) {
-                                    datas = result.payLoad;
-                                    datas.forEach(function(data){
-                                        var latLng = new google.maps.LatLng(data.location.lat, data.location.lng);
-                                        if(data.area !== null ) {
-                                            $scope.heatmapData.push({location: latLng, weight: data.price / (data.area * 1000)});
-                                        }
-                                    });
+                                    $scope.size = result.payLoad.size;
+                                    $scope.price = result.payLoad.price;
                                 } else {
-                                    alert("Failed to load data");
+                                    alert(result.message);
                                 }
                             });
-
-                        console.log($scope.heatmapData);
 
                     }
                 });

@@ -70,9 +70,9 @@ angular.module('app.services')
                 .then(stripRestangular);
         }
 
-        function estimatePrices(){
-            return Restangular.one("/estimate/price")
-                .get()
+        function estimatePrice(param){
+            return Restangular.one("/estimate/get")
+                .get(param)
                 .then(stripRestangular);
         }
 
@@ -85,6 +85,6 @@ angular.module('app.services')
             removeFavorite : removeFavorite,
             getFavoriteByUidCustom : getFavoriteByUidCustom,
             getPrices : getPrices,
-            estimatePrices : estimatePrices
+            estimatePrice : estimatePrice
         };
     });
