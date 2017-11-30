@@ -51,12 +51,12 @@ angular
                 templateUrl : 'resources/views/register.view.html',
                 controller : 'RegisterController'
             })
-            .state('heatmap', {
+            .state('app.heatmap', {
                 url: '/heatmap',
                 templateUrl: 'resources/views/heatmap.view.html',
                 controller : 'heatmapController'
             })
-            .state('estimateprice', {
+            .state('app.estimateprice', {
                 url: '/estimateprice',
                 templateUrl: 'resources/views/estimateprice.view.html',
                 controller : 'estimationController',

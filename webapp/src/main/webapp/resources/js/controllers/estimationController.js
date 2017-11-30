@@ -1,6 +1,8 @@
 angular
     .module('app.controllers')
-    .controller('estimationController', function ($scope, QueryServices) {
+    .controller('estimationController', function ($scope, $rootScope, QueryServices) {
+        $rootScope.currentTab = 'estimate';
+
 
         var vm = this;
 

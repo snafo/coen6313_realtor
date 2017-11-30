@@ -1,17 +1,12 @@
 angular
     .module('app.controllers')
-    .controller('heatmapController', function ($scope, QueryServices, NgMap) {
+    .controller('heatmapController', function ($scope, $rootScope, QueryServices, NgMap) {
+        $rootScope.currentTab = 'heat';
 
         $scope.heatmap;
         var vm = this;
 
-        var datas;
         $scope.heatmapData = [];
-
-        NgMap.getMap().then(function(map) {
-            vm.map = map;
-            $scope.heatmap = vm.map.heatmapLayers.foo;
-        });
 
         $scope.toggleHeatmap= function(event) {
             $scope.heatmap.setMap($scope.heatmap.getMap() ? null : vm.map);
@@ -57,22 +52,26 @@ angular
             {location: new google.maps.LatLng(37.785, -122.435), weight: 3}
         ];
 
-        QueryServices.getPrices()
-            .then(function (result){
-                if (result.code === 1 ) {
-                    datas = result.payLoad;
-                    datas.forEach(function(data){
-                        var latLng = new google.maps.LatLng(data.location.lat, data.location.lng);
-                        if(data.area !== null ) {
-                            $scope.heatmapData.push({location: latLng, weight: data.price / (data.area * 1000)});
-                        }
-                    });
-                } else {
-                    alert("Failed to load data");
-                }
-            });
+        NgMap.getMap().then(function(map) {
+            vm.map = map;
+            $scope.heatmap = vm.map.heatmapLayers.foo;
+        });
 
-        console.log($scope.heatmapData);
+        QueryServices.getPrices().then(function (result){
+            if (result.code === 1 ) {
+                var datas = result.payLoad;
+                datas.forEach(function(data){
+                        var latLng = new google.maps.LatLng(data.location.lat, data.location.lng);
+                        if(data.area !== null && data.area > 0 && data.price !== null && data.price > 0) {
+                            $scope.heatmapData.push({location: latLng, weight: data.price / (data.area * 2000)});
+                        }
+                });
+                console.log($scope.heatmapData);
+            } else {
+                alert("Failed to load data");
+            }
+        });
+
 
 // Heatmap data: 500 Points
 

@@ -7,19 +7,20 @@ angular.module('app.services')
             return Restangular.stripRestangular(filters);
         }
 
-        function getProperty(param) {
-            return Restangular.one("/property/get")
+        function getProperty(param, name) {
+            return Restangular.one("/property/get/" + name)
                 .get({
                     'region' : param.region,
-                    'price' : param.minPrice,
-                    // 'maxPrice' : param.maxPrice,
+                    'minPrice' : param.minPrice,
+                    'maxPrice' : param.maxPrice,
                     'source': param.source,
                     'area': param.area,
                     'bedroom': param.bedroom,
                     'bathroom': param.bathroom,
                     'year': param.year,
                     'type': param.type,
-                    'limit': param.limit
+                    'limit': param.limit,
+                    'keywords':param.keywords
                 })
                 .then(stripRestangular);
         }
@@ -64,6 +65,24 @@ angular.module('app.services')
                 .then(stripRestangular);
         }
 
+        function getRecommend(uid){
+            return Restangular.one("/favorite/recommend/" + uid)
+                .get()
+                .then(stripRestangular);
+        }
+
+        function getFavoriteProperty(uid){
+            return Restangular.one("/favorite/property/" + uid)
+                .get()
+                .then(stripRestangular);
+        }
+
+        function getSearchParams(){
+            return Restangular.one('/property/params')
+                .get()
+                .then(stripRestangular);
+        }
+
         function getPrices(){
             return Restangular.one("/heatmap/price")
                 .get()
@@ -85,6 +104,9 @@ angular.module('app.services')
             removeFavorite : removeFavorite,
             getFavoriteByUidCustom : getFavoriteByUidCustom,
             getPrices : getPrices,
-            estimatePrice : estimatePrice
+            estimatePrice : estimatePrice,
+            getFavoriteProperty : getFavoriteProperty,
+            getRecommend : getRecommend,
+            getSearchParams : getSearchParams
         };
     });
