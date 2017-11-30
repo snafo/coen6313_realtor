@@ -51,6 +51,17 @@ angular
                 templateUrl : 'resources/views/register.view.html',
                 controller : 'RegisterController'
             })
+            .state('heatmap', {
+                url: '/heatmap',
+                templateUrl: 'resources/views/heatmap.view.html',
+                controller : 'heatmapController'
+            })
+            .state('estimateprice', {
+                url: '/estimateprice',
+                templateUrl: 'resources/views/estimateprice.view.html',
+                controller : 'estimationController',
+                controllerAs: 'vm'
+            })
             .state('main', {
                 url: '/main',
                 templateUrl: 'resources/views/main.html',

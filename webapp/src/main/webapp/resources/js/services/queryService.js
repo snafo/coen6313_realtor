@@ -7,20 +7,19 @@ angular.module('app.services')
             return Restangular.stripRestangular(filters);
         }
 
-        function getProperty(param, name) {
-            return Restangular.one("/property/get/" + name)
+        function getProperty(param) {
+            return Restangular.one("/property/get")
                 .get({
                     'region' : param.region,
-                    'minPrice' : param.minPrice,
-                    'maxPrice' : param.maxPrice,
+                    'price' : param.minPrice,
+                    // 'maxPrice' : param.maxPrice,
                     'source': param.source,
                     'area': param.area,
                     'bedroom': param.bedroom,
                     'bathroom': param.bathroom,
                     'year': param.year,
                     'type': param.type,
-                    'limit': param.limit,
-                    'keywords':param.keywords
+                    'limit': param.limit
                 })
                 .then(stripRestangular);
         }
@@ -65,21 +64,15 @@ angular.module('app.services')
                 .then(stripRestangular);
         }
 
-        function getRecommend(uid){
-            return Restangular.one("/favorite/recommend/" + uid)
+        function getPrices(){
+            return Restangular.one("/heatmap/price")
                 .get()
                 .then(stripRestangular);
         }
 
-        function getFavoriteProperty(uid){
-            return Restangular.one("/favorite/property/" + uid)
-                .get()
-                .then(stripRestangular);
-        }
-
-        function getSearchParams(){
-            return Restangular.one('/property/params')
-                .get()
+        function estimatePrice(param){
+            return Restangular.one("/estimate/get")
+                .get(param)
                 .then(stripRestangular);
         }
 
@@ -91,8 +84,7 @@ angular.module('app.services')
             createFavorite : createFavorite,
             removeFavorite : removeFavorite,
             getFavoriteByUidCustom : getFavoriteByUidCustom,
-            getFavoriteProperty : getFavoriteProperty,
-            getRecommend : getRecommend,
-            getSearchParams : getSearchParams
+            getPrices : getPrices,
+            estimatePrice : estimatePrice
         };
     });
