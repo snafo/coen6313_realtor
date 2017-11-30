@@ -78,6 +78,24 @@ public class FavoriteController {
         return new Response(1, null, MongoDataProvider.provideData(OpType.FIND, Arrays.asList(conditions), null));
     }
 
+    @GET
+    @Path("/property/{uid}")
+    public Response getFavoriteProperty(@PathParam("uid") int uid){
+        UserEntity userEntity = userDao.findById(uid);
+        List<FavoriteEntity> favoriteEntityList = favoriteDao.findByUid(uid);
+        List<String> propertyIdList = new ArrayList<>();
+        if (favoriteEntityList != null && !favoriteEntityList.isEmpty()) {
+            for (FavoriteEntity fe : favoriteEntityList) {
+                propertyIdList.add(fe.getPropertyId());
+            }
+        }
+        if (userEntity == null){
+            return new Response(0, "Couldn't find the corresponding user", null);
+        }
+        return new Response(1, null, MongoDataProvider.provideData(OpType.FIND, Arrays.asList(new Document("propertyId", new Document("$in",propertyIdList))), null));
+
+    }
+
     @POST
     @Path("/create")
     public Response createFavorite(FavoriteParam favoriteParam){
@@ -89,6 +107,11 @@ public class FavoriteController {
         if (properties.isEmpty()){
             return new Response(0, "Could not find the according property", null);
         }
+
+        if (favoriteDao.findByUidAndPropertyId(favoriteParam.getUid(),favoriteParam.getpropertyid()) != null){
+            return new Response(0, "Couldn't save duplicated user propertyId pair", null);
+        }
+
         SimpleProperty property = (SimpleProperty) properties.get(0);
 
         FavoriteEntity newFavorite = new FavoriteEntity();
@@ -196,7 +219,7 @@ public class FavoriteController {
             region.add(property.getSublocality());
         }
 
-        if (property.getLocality() != null && !property.getLocality().isEmpty() && !property.getLocality().equalsIgnoreCase("Montreal")){
+        if (property.getLocality() != null && !property.getLocality().isEmpty() && !property.getLocality().equalsIgnoreCase("Montréal")){
             region.add(property.getLocality());
         }
 

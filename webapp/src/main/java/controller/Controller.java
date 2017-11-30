@@ -1,17 +1,21 @@
 package controller;
 
 import com.google.gson.Gson;
+import dao.FavoriteDao;
+import dao.UserDao;
+import entity.FavoriteEntity;
 import entity.SimpleProperty;
+import entity.UserEntity;
 import org.bson.Document;
 import org.elasticsearch.action.ListenableActionFuture;
 import org.elasticsearch.action.search.SearchResponse;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import provider.EsDataProvider;
 import provider.MongoDataProvider;
 import provider.OpType;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
+
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.io.IOException;
 import java.util.*;
@@ -25,10 +29,18 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 public class Controller {
     Gson gson = new Gson();
 
+    @Autowired
+    UserDao userDao;
+
+    @Autowired
+    FavoriteDao favoriteDao;
+
     @GET
-    @Path("/get")
+    @Path("/get/{username}")
     public Response getProperty(
-            @QueryParam("price") String price,
+            @PathParam("username") String username,
+            @QueryParam("minPrice") Integer minPrice,
+            @QueryParam("maxPrice") Integer maxPrice,
             @QueryParam("area") String area,
             @QueryParam("type") String type,
             @QueryParam("year") String year,
@@ -39,6 +51,23 @@ public class Controller {
             @QueryParam("region") String region,
             @QueryParam("keywords") String keywords)
     {
+        if (username == null){
+            return new Response(0, "The user id or property ID couldn't be null", null);
+        }
+
+        UserEntity userEntity = userDao.findOneByName(username);
+        if (userEntity == null){
+            return new Response(0, "Couldn't find the corresponding user", null);
+        }
+
+        List<FavoriteEntity> favoriteEntityList = favoriteDao.findByUid(userEntity.getId());
+        List<String> propertyIdList = new ArrayList<>();
+        if (favoriteEntityList != null && !favoriteEntityList.isEmpty()) {
+            for (FavoriteEntity fe : favoriteEntityList) {
+                propertyIdList.add(fe.getPropertyId());
+            }
+        }
+
         ListenableActionFuture<SearchResponse> esFuture = null;
         List<String> esProperties = null;
 
@@ -52,8 +81,12 @@ public class Controller {
 
         Document conditions = new Document();
 
-        if(price != null){
-            conditions.append("price", parseCondition(price));
+        if(minPrice != null){
+            conditions.append("price", parseCondition("{gte:" + minPrice + "}"));
+        }
+
+        if(maxPrice != null){
+            conditions.append("price", parseCondition("{lte:" + maxPrice + "}"));
         }
 
         if(area != null){
@@ -93,11 +126,20 @@ public class Controller {
                     for (Object property : mongodata){
                         if (!esProperties.contains(((SimpleProperty)property).getPropertyId())){
                             mongodata.remove(property);
+                            continue;
                         }
                     }
                 }else{
                     mongodata.clear();
                 }
+            }
+        }
+
+        for (Object property : mongodata) {
+            if (propertyIdList.contains(((SimpleProperty) property).getPropertyId())) {
+                ((SimpleProperty) property).setFavorite(true);
+            } else {
+                ((SimpleProperty) property).setFavorite(false);
             }
         }
 
@@ -141,14 +183,6 @@ public class Controller {
 
         return new Response(1, "succeeded", MongoDataProvider.provideData(OpType.GROUP, conditions, null));
     }
-
-    @GET
-    @Path("/getEs")
-    public Response getProperty() throws IOException {
-        return new Response(1, null, EsDataProvider.provideData("jean talon market"));
-    }
-
-
 
     private Object parseCondition(String input){
         try {

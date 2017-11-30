@@ -5,45 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8b0c0f60-f684-484c-80e0-5cfadba3b200" name="Default" comment="add to favorite">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/esloader/src/main/java/esloader/Location.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webapp/src/main/java/controller/HeatMapController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webapp/src/main/java/entity/HeatMap.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webapp/src/main/java/provider/EsClient.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webapp/src/main/java/provider/EsDataProvider.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webapp/src/main/webapp/resources/js/controllers/favoriteController.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webapp/src/main/webapp/resources/js/controllers/searchResultController.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webapp/src/main/webapp/resources/js/services/searchResult.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webapp/src/main/webapp/resources/views/favorite.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webapp/src/main/webapp/resources/views/full.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webapp/src/main/webapp/resources/views/recommand.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webapp/src/main/webapp/resources/views/searchResult.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webapp/src/main/webapp/resources/views/simple.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webapp/src/main/java/controller/EstimateController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webapp/src/main/webapp/resources/js/controllers/recommendController.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webapp/src/main/java/controller/EstimationController.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/src/main/java/entity/FavoriteMetricEntity.java" afterPath="$PROJECT_DIR$/database/src/main/java/entity/FavoriteMetricEntity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/esloader/src/main/java/esloader/ESClient.java" afterPath="$PROJECT_DIR$/esloader/src/main/java/esloader/ESClient.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/esloader/src/main/java/esloader/EsEntity.java" afterPath="$PROJECT_DIR$/esloader/src/main/java/esloader/EsEntity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/esloader/src/main/java/esloader/MongoClient.java" afterPath="$PROJECT_DIR$/esloader/src/main/java/esloader/MongoClient.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/postprocessor/src/main/java/Filter.java" afterPath="$PROJECT_DIR$/postprocessor/src/main/java/Filter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/postprocessor/src/main/java/Geocode.java" afterPath="$PROJECT_DIR$/postprocessor/src/main/java/Geocode.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/src/main/java/dao/UserDao.java" afterPath="$PROJECT_DIR$/database/src/main/java/dao/UserDao.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webapp/pom.xml" afterPath="$PROJECT_DIR$/webapp/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webapp/src/main/java/controller/Controller.java" afterPath="$PROJECT_DIR$/webapp/src/main/java/controller/Controller.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webapp/src/main/java/controller/FavoriteController.java" afterPath="$PROJECT_DIR$/webapp/src/main/java/controller/FavoriteController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webapp/src/main/java/controller/UserController.java" afterPath="$PROJECT_DIR$/webapp/src/main/java/controller/UserController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webapp/src/main/java/entity/SimpleProperty.java" afterPath="$PROJECT_DIR$/webapp/src/main/java/entity/SimpleProperty.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webapp/src/main/java/provider/MongoDataProvider.java" afterPath="$PROJECT_DIR$/webapp/src/main/java/provider/MongoDataProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webapp/src/main/java/provider/OpType.java" afterPath="$PROJECT_DIR$/webapp/src/main/java/provider/OpType.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webapp/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/webapp/src/main/webapp/WEB-INF/web.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webapp/src/main/webapp/resources/bower.json" afterPath="$PROJECT_DIR$/webapp/src/main/webapp/resources/bower.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webapp/src/main/webapp/resources/data/data.json" afterPath="$PROJECT_DIR$/webapp/src/main/webapp/resources/data/data.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webapp/src/main/webapp/resources/js/app.js" afterPath="$PROJECT_DIR$/webapp/src/main/webapp/resources/js/app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webapp/src/main/webapp/resources/js/controllers/cribsController.js" afterPath="$PROJECT_DIR$/webapp/src/main/webapp/resources/js/controllers/cribsController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webapp/src/main/webapp/resources/js/controllers/loginController.js" afterPath="$PROJECT_DIR$/webapp/src/main/webapp/resources/js/controllers/loginController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webapp/src/main/webapp/resources/js/controllers/estimationController.js" afterPath="$PROJECT_DIR$/webapp/src/main/webapp/resources/js/controllers/estimationController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webapp/src/main/webapp/resources/js/controllers/favoriteController.js" afterPath="$PROJECT_DIR$/webapp/src/main/webapp/resources/js/controllers/favoriteController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webapp/src/main/webapp/resources/js/controllers/registerController.js" afterPath="$PROJECT_DIR$/webapp/src/main/webapp/resources/js/controllers/registerController.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webapp/src/main/webapp/resources/js/controllers/searchController.js" afterPath="$PROJECT_DIR$/webapp/src/main/webapp/resources/js/controllers/searchController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webapp/src/main/webapp/resources/js/controllers/searchResultController.js" afterPath="$PROJECT_DIR$/webapp/src/main/webapp/resources/js/controllers/searchResultController.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webapp/src/main/webapp/resources/js/routes.js" afterPath="$PROJECT_DIR$/webapp/src/main/webapp/resources/js/routes.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webapp/src/main/webapp/resources/js/services.js" afterPath="$PROJECT_DIR$/webapp/src/main/webapp/resources/js/services.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webapp/src/main/webapp/resources/js/services/queryService.js" afterPath="$PROJECT_DIR$/webapp/src/main/webapp/resources/js/services/queryService.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webapp/src/main/webapp/resources/views/login.view.html" afterPath="$PROJECT_DIR$/webapp/src/main/webapp/resources/views/login.view.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webapp/src/main/webapp/resources/views/register.view.html" afterPath="$PROJECT_DIR$/webapp/src/main/webapp/resources/views/register.view.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webapp/src/main/webapp/resources/views/estimateprice.view.html" afterPath="$PROJECT_DIR$/webapp/src/main/webapp/resources/views/estimateprice.view.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webapp/src/main/webapp/resources/views/favorite.html" afterPath="$PROJECT_DIR$/webapp/src/main/webapp/resources/views/favorite.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webapp/src/main/webapp/resources/views/full.html" afterPath="$PROJECT_DIR$/webapp/src/main/webapp/resources/views/full.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webapp/src/main/webapp/resources/views/search.view.html" afterPath="$PROJECT_DIR$/webapp/src/main/webapp/resources/views/search.view.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webapp/src/main/webapp/resources/views/searchResult.html" afterPath="$PROJECT_DIR$/webapp/src/main/webapp/resources/views/searchResult.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/webapp/src/main/webapp/resources/views/recommand.html" afterPath="$PROJECT_DIR$/webapp/src/main/webapp/resources/views/recommend.html" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -71,104 +57,103 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="heatmapController.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webapp/src/main/webapp/resources/js/controllers/heatmapController.js">
+      <file leaf-file-name="EstimateController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webapp/src/main/java/controller/EstimateController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="42" column="43" lean-forward="true" selection-start-line="42" selection-start-column="43" selection-end-line="42" selection-end-column="43" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MongoDataProvider.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/webapp/src/main/java/provider/MongoDataProvider.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="79" column="5" lean-forward="true" selection-start-line="79" selection-start-column="5" selection-end-line="79" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EsDataProvider.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webapp/src/main/java/provider/EsDataProvider.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="291">
-              <caret line="28" column="26" lean-forward="true" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webapp/src/main/webapp/resources/js/app.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="90" column="24" lean-forward="false" selection-start-line="90" selection-start-column="24" selection-end-line="90" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="routes.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webapp/src/main/webapp/resources/js/routes.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="9" column="27" lean-forward="true" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HeatMapController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webapp/src/main/java/controller/HeatMapController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="17" column="29" lean-forward="false" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webapp/src/main/java/controller/UserController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="538">
-              <caret line="48" column="5" lean-forward="true" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FavoriteParam.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webapp/src/main/java/controller/FavoriteParam.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="13" column="19" lean-forward="false" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="19" />
+            <state relative-caret-position="174">
+              <caret line="92" column="0" lean-forward="true" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
               <folding>
-                <element signature="e#214#215#0" expanded="true" />
-                <element signature="e#240#241#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="queryService.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webapp/src/main/webapp/resources/js/services/queryService.js">
+      <file leaf-file-name="main.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/webapp/src/main/webapp/resources/views/main.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="74" column="32" lean-forward="true" selection-start-line="74" selection-start-column="32" selection-end-line="74" selection-end-column="32" />
+            <state relative-caret-position="202">
+              <caret line="206" column="18" lean-forward="false" selection-start-line="206" selection-start-column="18" selection-end-line="206" selection-end-column="18" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="searchResult.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webapp/src/main/webapp/resources/js/services/searchResult.js">
+      <file leaf-file-name="DelegatingMethodAccessorImpl.class" pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk1.8.0_45/jre/lib/rt.jar!/sun/reflect/DelegatingMethodAccessorImpl.class">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="190">
+              <caret line="11" column="171" lean-forward="false" selection-start-line="11" selection-start-column="171" selection-end-line="11" selection-end-column="171" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Method.java" pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk1.8.0_45/src.zip!/java/lang/reflect/Method.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="125">
+              <caret line="496" column="0" lean-forward="false" selection-start-line="496" selection-start-column="0" selection-end-line="496" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ResourceMethodInvocationHandlerFactory.class" pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/org/glassfish/jersey/core/jersey-server/2.19/jersey-server-2.19.jar!/org/glassfish/jersey/server/model/internal/ResourceMethodInvocationHandlerFactory.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="248">
+              <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ResourceMethodInvoker.class" pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/org/glassfish/jersey/core/jersey-server/2.19/jersey-server-2.19.jar!/org/glassfish/jersey/server/model/ResourceMethodInvoker.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ServerRuntime.class" pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/org/glassfish/jersey/core/jersey-server/2.19/jersey-server-2.19.jar!/org/glassfish/jersey/server/ServerRuntime.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="248">
+              <caret line="190" column="0" lean-forward="false" selection-start-line="190" selection-start-column="0" selection-end-line="190" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AbstractJavaResourceMethodDispatcher.class" pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/org/glassfish/jersey/core/jersey-server/2.19/jersey-server-2.19.jar!/org/glassfish/jersey/server/model/internal/AbstractJavaResourceMethodDispatcher.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="108">
+              <caret line="14" column="173" lean-forward="false" selection-start-line="14" selection-start-column="173" selection-end-line="14" selection-end-column="173" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Errors.class" pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/org/glassfish/jersey/core/jersey-common/2.19/jersey-common-2.19.jar!/org/glassfish/jersey/internal/Errors.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="96" column="0" lean-forward="false" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="JavaResourceMethodDispatcherProvider.class" pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/org/glassfish/jersey/core/jersey-server/2.19/jersey-server-2.19.jar!/org/glassfish/jersey/server/model/internal/JavaResourceMethodDispatcherProvider.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="125">
+              <caret line="21" column="185" lean-forward="false" selection-start-line="21" selection-start-column="185" selection-end-line="21" selection-end-column="185" />
               <folding />
             </state>
           </provider>
@@ -181,28 +166,13 @@
       <list>
         <option value="Enum" />
         <option value="HTML File" />
+        <option value="JavaScript File" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>SetCredentials</find>
-      <find>userDao</find>
-      <find>id</find>
-      <find>n</find>
-      <find>getUserByNameCustom</find>
-      <find>log</find>
-      <find>console</find>
-      <find>vm.user.name</find>
-      <find>newListing</find>
-      <find>user</find>
-      <find>crib</find>
-      <find>vm.user</find>
-      <find>getFavoriteByUidCustom</find>
-      <find>favorite</find>
-      <find>sqrt</find>
-      <find>13801 Boul Cavendish #103, Saint-Laurent, QC H4R 3N7, Canada</find>
       <find>propertyId</find>
       <find>save</find>
       <find>deleteFavorite</find>
@@ -217,6 +187,22 @@
       <find>createUser</find>
       <find>getPrices</find>
       <find>data</find>
+      <find>address</find>
+      <find>https://maps.googleapis.com</find>
+      <find>https://maps.googleapis.com/maps/api/js</find>
+      <find>login</find>
+      <find>vm.estimate</find>
+      <find>submit</find>
+      <find>location</find>
+      <find>mongodata</find>
+      <find>propertyList</find>
+      <find>compareAndSetFavoriteMetric</find>
+      <find>SimpleProperty</find>
+      <find>MongoDataProvider</find>
+      <find>Provider</find>
+      <find>Response</find>
+      <find>response</find>
+      <find>price</find>
     </findStrings>
     <replaceStrings>
       <replace>getpropertyid</replace>
@@ -239,14 +225,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/crawler/src/main/java/crawler/CrawlController.java" />
-        <option value="$PROJECT_DIR$/crawler/pom.xml" />
-        <option value="$PROJECT_DIR$/crawler/src/main/java/crawler/Geometry.java" />
-        <option value="$PROJECT_DIR$/crawler/src/main/java/crawler/Location.java" />
-        <option value="$PROJECT_DIR$/postprocessor/pom.xml" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/crawler/src/main/java/crawler/PropertyEntity.java" />
-        <option value="$PROJECT_DIR$/crawler/src/main/java/crawler/entity/Location.java" />
         <option value="$PROJECT_DIR$/crawler/src/main/java/crawler/entity/Room.java" />
         <option value="$PROJECT_DIR$/crawler/src/main/java/crawler/entity/Broker.java" />
         <option value="$PROJECT_DIR$/webapp/src/main/webapp/resources/views/user.html" />
@@ -257,7 +235,6 @@
         <option value="$PROJECT_DIR$/webapp/src/main/java/provider/Room.java" />
         <option value="$PROJECT_DIR$/webapp/src/main/java/entity/Broker.java" />
         <option value="$PROJECT_DIR$/webapp/src/main/java/provider/DataProvider.java" />
-        <option value="$PROJECT_DIR$/webapp/pom.xml" />
         <option value="$PROJECT_DIR$/crawler/src/main/java/crawler/Processor.java" />
         <option value="$PROJECT_DIR$/crawler/src/main/java/crawler/Extractor.java" />
         <option value="$PROJECT_DIR$/webapp/src/main/java/entity/PropertyEntity.java" />
@@ -286,10 +263,19 @@
         <option value="$PROJECT_DIR$/database/src/main/java/entity/FavoriteMetricEntity.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/webapp/src/main/webapp/resources/js/controllers/cribsController.js" />
-        <option value="$PROJECT_DIR$/webapp/src/main/webapp/resources/js/services/queryService.js" />
-        <option value="$PROJECT_DIR$/webapp/src/main/webapp/resources/js/routes.js" />
-        <option value="$PROJECT_DIR$/webapp/src/main/webapp/resources/js/controllers/heatmapController.js" />
         <option value="$PROJECT_DIR$/webapp/src/main/java/provider/MongoDataProvider.java" />
+        <option value="$PROJECT_DIR$/webapp/src/main/webapp/resources/views/evaluateprice.view.html" />
+        <option value="$PROJECT_DIR$/webapp/src/main/webapp/resources/js/controllers/estimationPrice.js" />
+        <option value="$PROJECT_DIR$/webapp/src/main/webapp/resources/js/controllers/heatmapController.js" />
+        <option value="$PROJECT_DIR$/webapp/src/main/webapp/resources/js/controllers/loginController.js" />
+        <option value="$PROJECT_DIR$/webapp/src/main/webapp/resources/js/routes.js" />
+        <option value="$PROJECT_DIR$/webapp/src/main/java/controller/EstimationController.java" />
+        <option value="$PROJECT_DIR$/webapp/pom.xml" />
+        <option value="$PROJECT_DIR$/webapp/src/main/webapp/resources/views/estimateprice.view.html" />
+        <option value="$PROJECT_DIR$/webapp/src/main/webapp/resources/js/controllers/estimationController.js" />
+        <option value="$PROJECT_DIR$/webapp/src/main/webapp/resources/js/ngmin/controllers-all.js" />
+        <option value="$PROJECT_DIR$/webapp/src/main/webapp/resources/js/services/queryService.js" />
+        <option value="$PROJECT_DIR$/webapp/src/main/java/controller/EstimateController.java" />
       </list>
     </option>
   </component>
@@ -363,50 +349,6 @@
             <path>
               <item name="coen6313_realtor" type="b2602c69:ProjectViewProjectNode" />
               <item name="coen6313_realtor" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="coen6313_realtor" type="b2602c69:ProjectViewProjectNode" />
-              <item name="coen6313_realtor" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="coen6313_realtor" type="b2602c69:ProjectViewProjectNode" />
-              <item name="coen6313_realtor" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="coen6313_realtor" type="b2602c69:ProjectViewProjectNode" />
-              <item name="coen6313_realtor" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="coen6313_realtor" type="b2602c69:ProjectViewProjectNode" />
-              <item name="coen6313_realtor" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="coen6313_realtor" type="b2602c69:ProjectViewProjectNode" />
-              <item name="coen6313_realtor" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="entity" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="coen6313_realtor" type="b2602c69:ProjectViewProjectNode" />
-              <item name="coen6313_realtor" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -438,6 +380,15 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="coen6313_realtor" type="b2602c69:ProjectViewProjectNode" />
+              <item name="coen6313_realtor" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="entity" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="coen6313_realtor" type="b2602c69:ProjectViewProjectNode" />
@@ -495,6 +446,17 @@
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="ngmin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="coen6313_realtor" type="b2602c69:ProjectViewProjectNode" />
+              <item name="coen6313_realtor" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
               <item name="services" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -506,15 +468,6 @@
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="coen6313_realtor" type="b2602c69:ProjectViewProjectNode" />
-              <item name="coen6313_realtor" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -909,7 +862,7 @@
       <updated>1509590655152</updated>
       <workItem from="1511935462930" duration="7516000" />
       <workItem from="1511943107325" duration="12306000" />
-      <workItem from="1512005792805" duration="4786000" />
+      <workItem from="1512005792805" duration="23998000" />
     </task>
     <task id="LOCAL-00001" summary="second commit">
       <created>1511577362982</created>
@@ -1009,11 +962,25 @@
       <option name="project" value="LOCAL" />
       <updated>1511973764435</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="add to favorite">
+      <created>1512010658744</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1512010658744</updated>
+    </task>
+    <task id="LOCAL-00016" summary="add to favorite">
+      <created>1512022143435</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1512022143435</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24608000" />
+    <option name="totallyTimeSpent" value="43820000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1036,20 +1003,21 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26009694" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35218093" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3279483" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2907916" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32901296" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.42810985" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3279483" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42810985" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2685325" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38426626" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1061,7 +1029,6 @@
       <window_info id="Memory View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1093,12 +1060,30 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/webapp/src/main/java/controller/FavoriteController.java</url>
-          <line>115</line>
+          <line>138</line>
           <properties />
           <option name="timeStamp" value="104" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/webapp/src/main/java/controller/EstimateController.java</url>
+          <line>55</line>
+          <properties />
+          <option name="timeStamp" value="118" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/webapp/src/main/java/controller/EstimateController.java</url>
+          <line>41</line>
+          <properties />
+          <option name="timeStamp" value="119" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/webapp/src/main/java/controller/EstimateController.java</url>
+          <line>78</line>
+          <properties />
+          <option name="timeStamp" value="120" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="116" />
+      <option name="time" value="121" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1107,369 +1092,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/webapp/src/main/webapp/resources/js/controllers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/src/main/webapp/resources/views/register.view.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="18" column="6" lean-forward="true" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/src/main/webapp/resources/views/login.view.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/src/main/webapp/resources/js/controllers/userController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="3" lean-forward="true" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/src/main/java/controller/UserParam.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/glassfish/jersey/core/jersey-server/2.19/jersey-server-2.19.jar!/org/glassfish/jersey/server/model/internal/ResourceMethodInvocationHandlerFactory.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/3.2.10.RELEASE/spring-aop-3.2.10.RELEASE.jar!/org/springframework/aop/framework/JdkDynamicAopProxy.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="21" column="145" lean-forward="false" selection-start-line="21" selection-start-column="145" selection-end-line="21" selection-end-column="145" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/src/main/webapp/resources/js/favoriteFactory.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/src/main/webapp/resources/js/controllers/registerController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="15" column="7" lean-forward="true" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/src/main/webapp/resources/js/controllers/loginController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="24" lean-forward="false" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/src/main/java/controller/Response.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/src/main/webapp/resources/js/cribsFactory.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="30" lean-forward="true" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/src/main/webapp/resources/js/services/authentication.service.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="46" column="9" lean-forward="true" selection-start-line="46" selection-start-column="9" selection-end-line="46" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/src/main/webapp/resources/data/favorites.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="1979" lean-forward="false" selection-start-line="0" selection-start-column="1979" selection-end-line="0" selection-end-column="1979" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/glassfish/jersey/core/jersey-server/2.19/jersey-server-2.19.jar!/org/glassfish/jersey/server/model/internal/AbstractJavaResourceMethodDispatcher.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="14" column="173" lean-forward="false" selection-start-line="14" selection-start-column="173" selection-end-line="14" selection-end-column="173" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/glassfish/jersey/core/jersey-server/2.19/jersey-server-2.19.jar!/org/glassfish/jersey/server/model/ResourceMethodInvoker.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="31" column="152" lean-forward="false" selection-start-line="31" selection-start-column="152" selection-end-line="31" selection-end-column="152" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/eclipse/jetty/jetty-servlet/8.1.8.v20121106/jetty-servlet-8.1.8.v20121106.jar!/org/eclipse/jetty/servlet/ServletHandler.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="64" column="0" lean-forward="true" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/eclipse/jetty/jetty-servlet/8.1.8.v20121106/jetty-servlet-8.1.8.v20121106.jar!/org/eclipse/jetty/servlet/ServletHolder.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="97" column="243" lean-forward="false" selection-start-line="97" selection-start-column="243" selection-end-line="97" selection-end-column="243" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/glassfish/jersey/containers/jersey-container-servlet-core/2.19/jersey-container-servlet-core-2.19.jar!/org/glassfish/jersey/servlet/WebComponent.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="23" column="307" lean-forward="false" selection-start-line="23" selection-start-column="307" selection-end-line="23" selection-end-column="307" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/glassfish/jersey/core/jersey-common/2.19/jersey-common-2.19.jar!/org/glassfish/jersey/process/internal/RequestScope.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="42" column="128" lean-forward="false" selection-start-line="42" selection-start-column="128" selection-end-line="42" selection-end-column="128" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/glassfish/jersey/core/jersey-common/2.19/jersey-common-2.19.jar!/org/glassfish/jersey/internal/Errors.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="41" column="111" lean-forward="false" selection-start-line="41" selection-start-column="111" selection-end-line="41" selection-end-column="111" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/glassfish/jersey/core/jersey-server/2.19/jersey-server-2.19.jar!/org/glassfish/jersey/server/ServerRuntime.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="568">
-          <caret line="190" column="0" lean-forward="false" selection-start-line="190" selection-start-column="0" selection-end-line="190" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/eclipse/jetty/jetty-server/8.1.8.v20121106/jetty-server-8.1.8.v20121106.jar!/org/eclipse/jetty/server/handler/ScopedHandler.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="15" column="256" lean-forward="false" selection-start-line="15" selection-start-column="256" selection-end-line="15" selection-end-column="256" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/eclipse/jetty/jetty-security/8.1.8.v20121106/jetty-security-8.1.8.v20121106.jar!/org/eclipse/jetty/security/SecurityHandler.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="71" column="257" lean-forward="false" selection-start-line="71" selection-start-column="257" selection-end-line="71" selection-end-column="257" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/eclipse/jetty/jetty-server/8.1.8.v20121106/jetty-server-8.1.8.v20121106.jar!/org/eclipse/jetty/server/session/SessionHandler.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="27" column="252" lean-forward="false" selection-start-line="27" selection-start-column="252" selection-end-line="27" selection-end-column="252" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/eclipse/jetty/jetty-server/8.1.8.v20121106/jetty-server-8.1.8.v20121106.jar!/org/eclipse/jetty/server/handler/ContextHandler.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="133" column="252" lean-forward="false" selection-start-line="133" selection-start-column="252" selection-end-line="133" selection-end-column="252" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/src/main/java/controller/FavoriteController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2565">
-          <caret line="137" column="61" lean-forward="false" selection-start-line="137" selection-start-column="61" selection-end-line="137" selection-end-column="61" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/src/main/webapp/resources/data/data.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="15" column="1" lean-forward="false" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/src/main/webapp/resources/views/main.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1634">
-          <caret line="86" column="16" lean-forward="false" selection-start-line="86" selection-start-column="16" selection-end-line="86" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/src/main/webapp/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="950">
-          <caret line="50" column="21" lean-forward="false" selection-start-line="50" selection-start-column="21" selection-end-line="50" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/src/main/webapp/resources/views/heatmap.view.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/src/main/webapp/resources/js/services.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/src/main/java/dao/FavoriteDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="22" column="70" lean-forward="true" selection-start-line="22" selection-start-column="70" selection-end-line="22" selection-end-column="70" />
-          <folding>
-            <marker date="1511935446373" expanded="true" signature="469:512" ph="select * fro... favorite" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/src/main/java/provider/EsClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/src/main/webapp/resources/js/controllers/cribsController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="52" column="24" lean-forward="true" selection-start-line="52" selection-start-column="24" selection-end-line="52" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/src/main/java/entity/FavoriteMetricEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="45" column="5" lean-forward="true" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
-          <folding>
-            <element signature="e#1074#1075#0" expanded="true" />
-            <element signature="e#1101#1102#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/src/main/java/dao/FavoriteMetricDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/src/main/java/entity/FavoriteEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/src/main/java/entity/UserEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding>
-            <element signature="e#638#639#0" expanded="true" />
-            <element signature="e#665#666#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/src/main/java/dao/UserDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="18" column="36" lean-forward="false" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
-          <folding>
-            <marker date="1511935446386" expanded="true" signature="492:532" ph="select * fro... user" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/src/main/java/controller/FavoriteParam.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="13" column="19" lean-forward="false" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="19" />
-          <folding>
-            <element signature="e#214#215#0" expanded="true" />
-            <element signature="e#240#241#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/src/main/java/controller/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="538">
-          <caret line="48" column="5" lean-forward="true" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/src/main/java/controller/HeatMapController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="17" column="29" lean-forward="false" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/src/main/webapp/resources/js/services/searchResult.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/src/main/webapp/resources/js/services/queryService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="74" column="32" lean-forward="true" selection-start-line="74" selection-start-column="32" selection-end-line="74" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/webapp/src/main/webapp/resources/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
@@ -1478,10 +1100,108 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/src/main/webapp/resources/js/routes.js">
+    <entry file="file://$PROJECT_DIR$/webapp/src/main/java/provider/EsDataProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" column="51" lean-forward="false" selection-start-line="6" selection-start-column="51" selection-end-line="6" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/src/main/java/provider/MongoDataProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/src/main/webapp/resources/views/full.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#nav#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/src/main/webapp/resources/views/favorite.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/src/main/webapp/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="142">
+          <caret line="35" column="52" lean-forward="true" selection-start-line="35" selection-start-column="52" selection-end-line="35" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/src/main/webapp/resources/js/controllers/loginController.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
-          <caret line="9" column="27" lean-forward="true" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
+          <caret line="9" column="45" lean-forward="true" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/src/main/webapp/resources/views/login.view.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/src/main/webapp/resources/views/heatmap.view.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/src/main/webapp/resources/js/controllers/userController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/src/main/webapp/resources/js/controllers/searchController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1512022160852" expanded="true" signature="1183:1198" ph="{...}" />
+            <marker date="1512022160852" expanded="true" signature="1235:1304" ph="{...}" />
+            <marker date="1512022160852" expanded="true" signature="1337:1398" ph="{...}" />
+            <marker date="1512022160852" expanded="true" signature="1434:1517" ph="{...}" />
+            <marker date="1512022160852" expanded="true" signature="1554:1640" ph="{...}" />
+            <marker date="1512022160852" expanded="true" signature="1673:1751" ph="{...}" />
+            <marker date="1512022160852" expanded="true" signature="1773:1838" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/src/main/webapp/resources/js/services.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/src/main/webapp/resources/js/routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1489,23 +1209,413 @@
     <entry file="file://$PROJECT_DIR$/webapp/src/main/webapp/resources/js/controllers/heatmapController.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
-          <caret line="42" column="43" lean-forward="true" selection-start-line="42" selection-start-column="43" selection-end-line="42" selection-end-column="43" />
+          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/src/main/java/provider/EsDataProvider.java">
+    <entry file="file://$PROJECT_DIR$/webapp/src/main/java/controller/EstimationController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="28" column="26" lean-forward="true" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
+        <state relative-caret-position="122">
+          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/src/main/java/provider/MongoDataProvider.java">
+    <entry file="file://$PROJECT_DIR$/webapp/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="261" column="19" lean-forward="false" selection-start-line="261" selection-start-column="19" selection-end-line="261" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/src/main/java/entity/Room.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/src/main/java/entity/PropertyEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="254">
+          <caret line="230" column="0" lean-forward="false" selection-start-line="230" selection-start-column="0" selection-end-line="230" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/src/main/java/entity/SimpleProperty.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" column="19" lean-forward="false" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/src/main/java/entity/Location.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/src/main/java/entity/Broker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/src/main/java/controller/UserParam.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="254">
+          <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/src/main/java/entity/HeatMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/src/main/java/controller/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="39" column="19" lean-forward="false" selection-start-line="39" selection-start-column="11" selection-end-line="39" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/src/main/java/controller/FavoriteController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="266" column="50" lean-forward="true" selection-start-line="266" selection-start-column="50" selection-end-line="266" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1512022160787" expanded="true" signature="2273:2274" ph="@{...}" />
+            <marker date="1512022160787" expanded="true" signature="8935:10255" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/src/main/java/controller/FavoriteParam.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/src/main/java/controller/HeatMapController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="21" column="1" lean-forward="true" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/src/main/java/controller/Response.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="14" column="19" lean-forward="false" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/src/main/java/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="40" column="25" lean-forward="true" selection-start-line="40" selection-start-column="25" selection-end-line="40" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/src/main/webapp/resources/views/searchResult.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/src/main/webapp/resources/views/register.view.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" column="14" lean-forward="true" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/src/main/webapp/resources/js/controllers/searchResultController.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
-          <caret line="79" column="5" lean-forward="true" selection-start-line="79" selection-start-column="5" selection-end-line="79" selection-end-column="5" />
+          <caret line="43" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/src/main/webapp/resources/views/search.view.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/src/main/webapp/resources/js/controllers/recommendController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/src/main/webapp/resources/views/estimateprice.view.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="35" column="12" lean-forward="true" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/src/main/webapp/resources/js/ngmin/controllers-all.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="37" column="38" lean-forward="true" selection-start-line="37" selection-start-column="38" selection-end-line="37" selection-end-column="38" />
+          <folding>
+            <marker date="1512030840106" expanded="true" signature="326:1511" ph="[...]" />
+            <marker date="1512030840106" expanded="true" signature="394:1509" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="467:1466" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="567:1460" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="648:1450" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="705:1440" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="1229:1350" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="1356:1412" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="1468:1505" ph="//..." />
+            <marker date="1512030840106" expanded="true" signature="1580:3086" ph="[...]" />
+            <marker date="1512030840106" expanded="true" signature="1694:3084" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="1916:2034" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="2088:2631" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="2190:2623" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="2268:2598" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="2402:2586" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="2439:2499" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="2505:2574" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="2604:2615" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="2680:3079" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="2700:2784" ph="{&quot;uid&quot;: $scope.user.id...}" />
+            <marker date="1512030840106" expanded="true" signature="2851:3071" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="2996:3063" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="3154:6094" ph="[...]" />
+            <marker date="1512030840106" expanded="true" signature="3240:6092" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="3364:3440" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="3487:3564" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="3606:4193" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="3629:4098" ph="[...]" />
+            <marker date="1512030840106" expanded="true" signature="4465:5509" ph="[...]" />
+            <marker date="1512030840106" expanded="true" signature="4475:4570" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="4580:4673" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="4683:4776" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="4786:4879" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="4889:4984" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="4994:5087" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="5097:5190" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="5200:5295" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="5305:5398" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="5408:5501" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="5564:6020" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="5595:5961" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="5667:5951" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="5788:5941" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="5826:5927" ph="{&quot;location&quot;: latLng...}" />
+            <marker date="1512030840106" expanded="true" signature="5967:6014" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="6160:6868" ph="[...]" />
+            <marker date="1512030840106" expanded="true" signature="6297:6866" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="6371:6454" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="6480:6862" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="6587:6854" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="6619:6743" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="6749:6846" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="6938:8407" ph="[...]" />
+            <marker date="1512030840106" expanded="true" signature="7052:8405" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="7245:7363" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="7417:7936" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="7519:7928" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="7597:7903" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="7724:7891" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="7761:7821" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="7827:7879" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="7909:7920" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="7981:8400" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="8001:8081" ph="{&quot;uid&quot;: $scope.user.id...}" />
+            <marker date="1512030840106" expanded="true" signature="8174:8392" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="8321:8384" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="8476:8895" ph="[...]" />
+            <marker date="1512030840106" expanded="true" signature="8570:8893" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="8640:8888" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="8703:8880" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="8828:8872" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="8962:10684" ph="[...]" />
+            <marker date="1512030840106" expanded="true" signature="9176:10682" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="9243:9300" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="9306:9345" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="9423:9882" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="9537:9874" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="9572:9866" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="9584:9717" ph="//..." />
+            <marker date="1512030840106" expanded="true" signature="9918:10678" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="9973:10028" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="10060:10115" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="10143:10190" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="10221:10290" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="10322:10393" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="10421:10484" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="10514:10565" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="10597:10652" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="10757:12214" ph="[...]" />
+            <marker date="1512030840106" expanded="true" signature="10999:12212" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="11113:11144" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="11192:11310" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="11343:11400" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="11476:11743" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="11578:11735" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="11716:11727" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="11788:12207" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="11808:11888" ph="{&quot;uid&quot;: $scope.user.id...}" />
+            <marker date="1512030840106" expanded="true" signature="11981:12199" ph="{...}" />
+            <marker date="1512030840106" expanded="true" signature="12128:12191" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/src/main/webapp/resources/js/controllers/registerController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" column="54" lean-forward="false" selection-start-line="6" selection-start-column="54" selection-end-line="6" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/src/main/webapp/resources/js/controllers/favoriteController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="30" column="44" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/src/main/webapp/resources/js/controllers/estimationController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78">
+          <caret line="25" column="51" lean-forward="true" selection-start-line="25" selection-start-column="51" selection-end-line="25" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/src/main/webapp/resources/js/services/queryService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="74" column="26" lean-forward="false" selection-start-line="74" selection-start-column="26" selection-end-line="74" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_45/jre/lib/rt.jar!/sun/reflect/NativeMethodAccessorImpl.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="13" column="171" lean-forward="false" selection-start-line="13" selection-start-column="171" selection-end-line="13" selection-end-column="171" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_45/jre/lib/rt.jar!/sun/reflect/DelegatingMethodAccessorImpl.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="11" column="171" lean-forward="false" selection-start-line="11" selection-start-column="171" selection-end-line="11" selection-end-column="171" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_45/src.zip!/java/lang/reflect/Method.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="496" column="0" lean-forward="false" selection-start-line="496" selection-start-column="0" selection-end-line="496" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/glassfish/jersey/core/jersey-server/2.19/jersey-server-2.19.jar!/org/glassfish/jersey/server/model/internal/ResourceMethodInvocationHandlerFactory.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/glassfish/jersey/core/jersey-server/2.19/jersey-server-2.19.jar!/org/glassfish/jersey/server/model/internal/JavaResourceMethodDispatcherProvider.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="21" column="185" lean-forward="false" selection-start-line="21" selection-start-column="185" selection-end-line="21" selection-end-column="185" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/glassfish/jersey/core/jersey-server/2.19/jersey-server-2.19.jar!/org/glassfish/jersey/server/model/internal/AbstractJavaResourceMethodDispatcher.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="14" column="173" lean-forward="false" selection-start-line="14" selection-start-column="173" selection-end-line="14" selection-end-column="173" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/glassfish/jersey/core/jersey-server/2.19/jersey-server-2.19.jar!/org/glassfish/jersey/server/model/ResourceMethodInvoker.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/glassfish/jersey/core/jersey-server/2.19/jersey-server-2.19.jar!/org/glassfish/jersey/server/ServerRuntime.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="190" column="0" lean-forward="false" selection-start-line="190" selection-start-column="0" selection-end-line="190" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/glassfish/jersey/core/jersey-common/2.19/jersey-common-2.19.jar!/org/glassfish/jersey/internal/Errors.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="96" column="0" lean-forward="false" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/src/main/java/controller/EstimateController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="92" column="0" lean-forward="true" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/src/main/webapp/resources/views/main.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="206" column="18" lean-forward="false" selection-start-line="206" selection-start-column="18" selection-end-line="206" selection-end-column="18" />
           <folding />
         </state>
       </provider>

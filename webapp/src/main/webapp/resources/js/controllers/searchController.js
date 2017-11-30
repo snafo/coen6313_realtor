@@ -1,15 +1,21 @@
 
 angular
     .module('app.controllers')
-    .controller('SearchController', function ($scope, $rootScope, $location, SearchResults, QueryServices, $cacheFactory) {
+    .controller('SearchController', function ($scope, $rootScope, $cookies, $location, SearchResults, QueryServices, $cacheFactory) {
         $scope.param = {};
-        var name = $rootScope.globals.currentUser.name;
+        var name;
+
+        if ($rootScope.globals){
+             name = $rootScope.globals.currentUser.name;
+        }else{
+            $location.path('/login');
+        }
         // var cache = $cacheFactory('realtor');
 
         $scope.search = function(){
             var param = getParam($scope.param);
 
-            QueryServices.getProperty(param).then(function (response){
+            QueryServices.getProperty(param, name).then(function (response){
                 if (response.code === 1){
                     // if (cache.get(name) !== null){
                     //     cache.remove(name);
@@ -25,7 +31,7 @@ angular
         function getParam(inputParam){
             var param = {};
             if (inputParam.minPrice){
-                param.minPrice = '{gte:' + inputParam.minPrice + '}';
+                param.minPrice = inputParam.minPrice;
             }
             if (inputParam.maxPrice){
                 param.maxPrice = inputParam.maxPrice;

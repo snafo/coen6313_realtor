@@ -9,7 +9,7 @@ angular
                     console.log(result.message);
                     $location.path('/login');
                 } else{
-                    alert("Failed to save your profile");
+                    alert(result.message);
                 }
             });
         };
