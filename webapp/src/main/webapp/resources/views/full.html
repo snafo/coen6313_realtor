@@ -1,16 +1,16 @@
 <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">Realtor</a>
+            <a class="navbar-brand">Realtor</a>
         </div>
         <ul class="nav navbar-nav" >
-            <li class="active" ><a href="#!/search">New Search</a></li>
+            <li class="active" ><a ui-sref-active="active" ui-sref="appSimple.search">New Search</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li ng-show="vm.user == null"> <a href="#!/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-            <li ng-show="vm.user == null"> <a href="#!/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-            <li ng-show="vm.user != null"> <a href="#!/register"><span class="glyphicon glyphicon-user"></span> {{vm.user.name}}</a></li>
-            <li ng-show="vm.user != null"> <a href="#!/login"><span class="glyphicon glyphicon-log-out"></span> Sign Out</a></li>
+            <li ng-show="globals == null"> <a ui-sref-active="active" ui-sref="appSimple.register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li ng-show="globals == null"> <a ui-sref-active="active" ui-sref="appSimple.login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            <li ng-show="globals != null"> <a><span class="glyphicon glyphicon-user"></span> {{globals.currentUser.name}}</a></li>
+            <li ng-show="globals != null"> <a ui-sref-active="active" ui-sref="appSimple.login"><span class="glyphicon glyphicon-log-out"></span> Sign Out</a></li>
         </ul>
         <!--<div class="navbar-header">-->
         <!--<a class="navbar-brand" href="#">welcome {{vm.user}}</a>-->

@@ -37,7 +37,7 @@ angular
         'angularUtils.directives.dirPagination'
     ])
     .config(function($facebookProvider){
-        $facebookProvider.setAppId('174897076426435');
+        // $facebookProvider.setAppId('174897076426435');
     })
     .service('SearchResults', function () {
     var property = {};
@@ -62,32 +62,36 @@ angular
         $rootScope.$state = $state;
         $rootScope.$stateParams = $stateParams;
 
-        if (document.getElementById('facebook-jssdk')) {return;}
-
-        // Get the first script element, which we'll use to find the parent node
-        var firstScriptElement = document.getElementsByTagName('script')[0];
-
-        // Create a new script element and set its id
-        var facebookJS = document.createElement('script');
-        facebookJS.id = 'facebook-jssdk';
-
-        // Set the new script's source to the source of the Facebook JS SDK
-        facebookJS.src = '//connect.facebook.net/en_US/all.js';
-
-        // Insert the Facebook JS SDK into the DOM
-        firstScriptElement.parentNode.insertBefore(facebookJS, firstScriptElement);
-
-        // keep user logged in after page refresh
-        $rootScope.globals = $cookies.getObject('globals') || {};
-        if ($rootScope.globals.currentUser) {
-            $http.defaults.headers.common.Authorization = 'Basic ' + $rootScope.globals.currentUser.authdata;
-        }
+        // if (document.getElementById('facebook-jssdk')) {return;}
+        //
+        // // Get the first script element, which we'll use to find the parent node
+        // var firstScriptElement = document.getElementsByTagName('script')[0];
+        //
+        // // Create a new script element and set its id
+        // var facebookJS = document.createElement('script');
+        // facebookJS.id = 'facebook-jssdk';
+        //
+        // // Set the new script's source to the source of the Facebook JS SDK
+        // facebookJS.src = '//connect.facebook.net/en_US/all.js';
+        //
+        // // Insert the Facebook JS SDK into the DOM
+        // firstScriptElement.parentNode.insertBefore(facebookJS, firstScriptElement);
+        //
+        // // keep user logged in after page refresh
+        // $rootScope.globals = $cookies.getObject('globals') || {};
+        // if ($rootScope.globals.currentUser) {
+        //     $http.defaults.headers.common.Authorization = 'Basic ' + $rootScope.globals.currentUser.authdata;
+        // }
 
         $rootScope.$on('$locationChangeStart', function (event, next, current) {
             // redirect to search page if not logged in and trying to access a restricted page
             // var restrictedPage = $.inArray($location.path(), ['/search','/login', '/register']) === -1;
-            var loggedIn = $rootScope.globals.currentUser;
-            console.log(loggedIn);
+            // var loggedIn = $rootScope.globals.currentUser;
+            // console.log(loggedIn);
+
+            if ($cookies.get('globals')){
+                $rootScope.globals = angular.fromJson($cookies.get('globals'));
+            }
             // if (restrictedPage && !loggedIn) {
             // if (!loggedIn) {
             //     $location.path('/search');

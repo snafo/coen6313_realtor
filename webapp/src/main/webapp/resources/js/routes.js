@@ -18,12 +18,12 @@ angular
             })
             .state('app.favorite',{
                 url:'/favorite',
-                templateUrl : 'resources/views/favorite.html',
+                templateUrl : 'resources/views/searchResult.html',
                 controller : 'FavoriteController'
             })
             .state('app.recommend',{
                 url:'/recommend',
-                templateUrl : 'resources/views/recommend.html',
+                templateUrl : 'resources/views/searchResult.html',
                 controller : 'RecommendController'
             })
             .state('appSimple',{

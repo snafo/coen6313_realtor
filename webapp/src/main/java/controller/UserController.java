@@ -31,7 +31,7 @@ public class UserController {
     @GET
     @Path("/findbyname/{name}")
     public Response getUserByName(@PathParam("name") String name){
-        return new Response(1, null, userDao.findByName(name));
+        return new Response(1, null, userDao.findOneByName(name));
     }
 
     @POST
@@ -39,6 +39,10 @@ public class UserController {
     public Response createUser(UserParam userParam){
         if (userParam.getName() == null || userParam.getPassword() == null){
             return new Response(0, "The name or password couldn't be null", null);
+        }
+
+        if (userDao.findOneByName(userParam.getName())!=null){
+            return new Response (0, "The user name already exists", null);
         }
 
         UserEntity newUser = new UserEntity();

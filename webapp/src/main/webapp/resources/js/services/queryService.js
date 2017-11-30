@@ -7,19 +7,20 @@ angular.module('app.services')
             return Restangular.stripRestangular(filters);
         }
 
-        function getProperty(param) {
-            return Restangular.one("/property/get")
+        function getProperty(param, name) {
+            return Restangular.one("/property/get/" + name)
                 .get({
                     'region' : param.region,
-                    'price' : param.minPrice,
-                    // 'maxPrice' : param.maxPrice,
+                    'minPrice' : param.minPrice,
+                    'maxPrice' : param.maxPrice,
                     'source': param.source,
                     'area': param.area,
                     'bedroom': param.bedroom,
                     'bathroom': param.bathroom,
                     'year': param.year,
                     'type': param.type,
-                    'limit': param.limit
+                    'limit': param.limit,
+                    'keywords':param.keywords
                 })
                 .then(stripRestangular);
         }
@@ -64,6 +65,18 @@ angular.module('app.services')
                 .then(stripRestangular);
         }
 
+        function getRecommend(uid){
+            return Restangular.one("/favorite/recommend/" + uid)
+                .get()
+                .then(stripRestangular);
+        }
+
+        function getFavoriteProperty(uid){
+            return Restangular.one("/favorite/property/" + uid)
+                .get()
+                .then(stripRestangular);
+        }
+
         return {
             getProperty : getProperty,
             createUser : createUser,
@@ -71,6 +84,8 @@ angular.module('app.services')
             getUserByNameCustom : getUserByNameCustom,
             createFavorite : createFavorite,
             removeFavorite : removeFavorite,
-            getFavoriteByUidCustom : getFavoriteByUidCustom
+            getFavoriteByUidCustom : getFavoriteByUidCustom,
+            getFavoriteProperty : getFavoriteProperty,
+            getRecommend : getRecommend
         };
     });

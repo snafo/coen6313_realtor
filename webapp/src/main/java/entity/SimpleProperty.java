@@ -36,6 +36,8 @@ public class SimpleProperty {
 
     String discription;
 
+    Boolean favorite;
+
     public String getSource() {
         return source;
     }
@@ -162,5 +164,13 @@ public class SimpleProperty {
 
     public void setDiscription(String discription) {
         this.discription = discription;
+    }
+
+    public Boolean getFavorite() {
+        return favorite;
+    }
+
+    public void setFavorite(Boolean favorite) {
+        this.favorite = favorite;
     }
 }
