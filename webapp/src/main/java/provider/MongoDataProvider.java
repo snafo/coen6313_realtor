@@ -28,7 +28,7 @@ public class MongoDataProvider {
 //        ));
 //        System.out.print("");
 
-        //        AggregateIterable<Document> output = collection.aggregate(Arrays.asList(
+    //        AggregateIterable<Document> output = collection.aggregate(Arrays.asList(
 //                new Document("$unwind", "$views"),
 //                new Document("$match", new Document("views.isActive", true)),
 //                new Document("$sort", new Document("views.date", 1)),
@@ -44,7 +44,6 @@ public class MongoDataProvider {
         if (limitInput != null){
             limit = limitInput;
         }
-
 
         // Creating a Mongo client
         try (MongoClient mongo = new MongoClient("localhost", 27017)) {
@@ -76,6 +75,14 @@ public class MongoDataProvider {
                     output = TransformDataToHeatMap(collection.find());
             }
             return output;
+        }
+    }
+
+    public static List<Object> provideDistinctData( String field) {
+        try (MongoClient mongo = new MongoClient("localhost", 27017)) {
+            MongoDatabase database = mongo.getDatabase("mydb");
+            MongoCollection<Document> collection = database.getCollection("property");
+            return TransformData(collection.distinct(field, String.class));
         }
     }
 

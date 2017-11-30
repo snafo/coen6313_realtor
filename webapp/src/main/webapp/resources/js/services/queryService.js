@@ -77,6 +77,12 @@ angular.module('app.services')
                 .then(stripRestangular);
         }
 
+        function getSearchParams(){
+            return Restangular.one('/property/params')
+                .get()
+                .then(stripRestangular);
+        }
+
         return {
             getProperty : getProperty,
             createUser : createUser,
@@ -86,6 +92,7 @@ angular.module('app.services')
             removeFavorite : removeFavorite,
             getFavoriteByUidCustom : getFavoriteByUidCustom,
             getFavoriteProperty : getFavoriteProperty,
-            getRecommend : getRecommend
+            getRecommend : getRecommend,
+            getSearchParams : getSearchParams
         };
     });

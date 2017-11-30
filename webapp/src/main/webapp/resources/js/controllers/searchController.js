@@ -12,6 +12,11 @@ angular
         }
         // var cache = $cacheFactory('realtor');
 
+        QueryServices.getSearchParams().then(function (response){
+           $scope.searchParams = response.payLoad;
+        });
+
+
         $scope.search = function(){
             var param = getParam($scope.param);
 

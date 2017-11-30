@@ -1,6 +1,7 @@
 
 angular.module('app.controllers').
 controller('SearchResultController', function ($scope, $rootScope, $cookies, SearchResults, cribsFactory, favoriteFactory, QueryServices, NgMap) {
+    $rootScope.currentTab = 'result';
 
     $scope.cribs;
 
