@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.mongodb.MongoClient;
 import com.mongodb.client.*;
+import entity.HeatMap;
 import entity.SimpleProperty;
 import org.bson.Document;
 import java.util.*;
@@ -14,8 +15,8 @@ import java.util.*;
 public class MongoDataProvider {
     public static Gson gson = new Gson();
 
-    public static void main(String[] args){
-        MongoDataProvider dataProvider = new MongoDataProvider();
+//    public static void main(String[] args){
+//        MongoDataProvider dataProvider = new MongoDataProvider();
 //        List<Object> output = dataProvider.provideData(OpType.GROUP, Arrays.asList(
 //                new Document("$match", new Document("price", new Document("$gt", 1000000))),
 //                new Document("$group", new Document("_id", 0).append("count", new Document("$sum", 1)))
@@ -25,7 +26,7 @@ public class MongoDataProvider {
 //                new Document("price", new Document("$lt", 1000000))
 //                .append("area", new Document("$gt",  10000))
 //        ));
-        System.out.print("");
+//        System.out.print("");
 
         //        AggregateIterable<Document> output = collection.aggregate(Arrays.asList(
 //                new Document("$unwind", "$views"),
@@ -36,7 +37,7 @@ public class MongoDataProvider {
 //                        .append("crawler.url", "$views.crawler.url")
 //                        .append("date", "$views.date"))
 //        ));
-    }
+//    }
 
     public static List<Object> provideData( OpType opType, List<Document> conditions, Integer limitInput) {
         int limit = 10000;
@@ -71,6 +72,8 @@ public class MongoDataProvider {
                 case GROUP:
                     output = TransformData(collection.aggregate(conditions));
                     break;
+                case FIND_HEAT:
+                    output = TransformDataToHeatMap(collection.find());
             }
             return output;
         }
@@ -91,6 +94,16 @@ public class MongoDataProvider {
         while (it.hasNext()) {
             JsonElement jsonElement = gson.toJsonTree(it.next());
             output.add(gson.fromJson(jsonElement, SimpleProperty.class));
+        }
+        return output;
+    }
+
+    private static List<Object> TransformDataToHeatMap(MongoIterable iterable){
+        Iterator it = iterable.iterator();
+        List<Object> output = new ArrayList<>();
+        while (it.hasNext()) {
+            JsonElement jsonElement = gson.toJsonTree(it.next());
+            output.add(gson.fromJson(jsonElement, HeatMap.class));
         }
         return output;
     }

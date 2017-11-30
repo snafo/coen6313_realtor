@@ -18,6 +18,12 @@ public class EsEntity {
 
     String discription;
 
+    Location location;
+
+    Double price;
+
+    Double area;
+
     public String getType() {
         return type;
     }
@@ -72,5 +78,29 @@ public class EsEntity {
 
     public void setLocality(String locality) {
         this.locality = locality;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
+    public Double getArea() {
+        return area;
+    }
+
+    public void setArea(Double area) {
+        this.area = area;
     }
 }

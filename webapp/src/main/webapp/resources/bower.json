@@ -1,9 +1,9 @@
 {
-  "name": "Realtor",
+  "name": "realtor",
   "version": "1.0.0-alpha.5 (AngularJS)",
   "dependencies": {
     "jquery": "3.2.1",
-    "angular": "latest",
+    "angular": "1.6.7",
     "angular-ui-router": "1.0.6",
     "fontawesome": "latest",
     "simple-line-icons": "latest",

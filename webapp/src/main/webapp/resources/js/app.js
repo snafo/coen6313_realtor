@@ -39,6 +39,21 @@ angular
     .config(function($facebookProvider){
         $facebookProvider.setAppId('174897076426435');
     })
+    .service('SearchResults', function () {
+    var property = {};
+
+    return {
+        getProperty: function () {
+            return property;
+        },
+        setProperty: function (value) {
+            property = value;
+        },
+        cleanProperty: function () {
+            property = {};
+        }
+    };
+})
     .run(['$rootScope', '$state', '$stateParams', 'Restangular', '$location', '$cookies', '$http', function($rootScope, $state, $stateParams, Restangular, $location, $cookies, $http){
         $rootScope.$on('$stateChangeSuccess',function(){
             document.body.scrollTop = document.documentElement.scrollTop = 0;

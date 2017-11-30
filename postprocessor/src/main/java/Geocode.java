@@ -65,7 +65,7 @@ public class Geocode {
                     property = gson.fromJson(propertyStr, PropertyEntity.class);
                     convertType(property);
                     idCoding(property);
-                    geocoding(property);
+//                    geocoding(property);
                     roomCoding(property);
 //                    String output = gson.toJson(property);
 //                    System.out.print(output);
@@ -78,9 +78,9 @@ public class Geocode {
                 }
 
                 System.out.println(count);
-//                if (++count>=1000){
-//                    break;
-//                }
+                if (++count>=2000){
+                    break;
+                }
 
 //                Thread.sleep(20);
             }
@@ -245,7 +245,7 @@ public class Geocode {
         return null;
     }
 
-    private static void writeJson(String jsonString, String fileName)  {
+    public static void writeJson(String jsonString, String fileName)  {
         try (PrintWriter printWriter = new PrintWriter(new FileWriter(fileName, true))){
             printWriter.println(jsonString);
         } catch (IOException e) {}
