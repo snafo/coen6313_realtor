@@ -20,7 +20,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Queue;
 import java.util.Set;
+import java.util.concurrent.ConcurrentLinkedQueue;
 
 /**
  * Created by chao on 2017-11-24.
@@ -74,8 +76,24 @@ public class FavoriteController {
             return new Response(0, "The user hasn't any favorite house", null);
         }
 
+        List<FavoriteEntity> favoriteEntityList = favoriteDao.findByUid(uid);
+        List<String> propertyIdList = new ArrayList<>();
+        if (favoriteEntityList != null && !favoriteEntityList.isEmpty()) {
+            for (FavoriteEntity fe : favoriteEntityList) {
+                propertyIdList.add(fe.getPropertyId());
+            }
+        }
+
         Document conditions = generateMongoConditions(userEntity.getFavoriteMetric());
-        return new Response(1, null, MongoDataProvider.provideData(OpType.FIND, Arrays.asList(conditions), null));
+        Queue<Object> mongodata = new ConcurrentLinkedQueue<>(MongoDataProvider.provideData(OpType.FIND, Arrays.asList(conditions), null));
+
+        for (Object property : mongodata){
+            if (propertyIdList.contains(((SimpleProperty)property).getPropertyId())){
+                mongodata.remove(property);
+            }
+        }
+
+        return new Response(1, null, mongodata);
     }
 
     @GET
@@ -176,6 +194,54 @@ public class FavoriteController {
             removeFavorite(favoriteMetricEntity, favoriteEntity);
         }
         return new Response (1, "Operation succeeded", null);
+    }
+
+    @GET
+    @Path("/agent/{uid}")
+    public Response getAgentList(@PathParam("uid") Integer uid){
+        UserEntity userEntity = userDao.findById(uid);
+        if (userEntity == null){
+            return new Response(0, "Couldn't find the corresponding user", null);
+        }
+
+        if (userEntity.getFavoriteMetric() == null){
+            return new Response(0, "The user hasn't any favorite house", null);
+        }
+
+        return new Response(
+                1,
+                null,
+                MongoDataProvider.provideData(OpType.GROUP,
+                        Arrays.asList(
+                                new Document("$match", generateMongoConditions(userEntity.getFavoriteMetric())),
+                                new Document("$group",new Document("_id", "$brokers.name").append("total", new Document("$sum", 1))),
+                                new Document("$sort", new Document("total", -1))
+                        ),
+                        10));
+    }
+
+    @GET
+    @Path("/firm/{uid}")
+    public Response getFirmList(@PathParam("uid") Integer uid){
+        UserEntity userEntity = userDao.findById(uid);
+        if (userEntity == null){
+            return new Response(0, "Couldn't find the corresponding user", null);
+        }
+
+        if (userEntity.getFavoriteMetric() == null){
+            return new Response(0, "The user hasn't any favorite house", null);
+        }
+
+        return new Response(
+                1,
+                null,
+                MongoDataProvider.provideData(OpType.GROUP,
+                        Arrays.asList(
+                                new Document("$match", generateMongoConditions(userEntity.getFavoriteMetric())),
+                                new Document("$group",new Document("_id", "$firm").append("total", new Document("$sum", 1))),
+                                new Document("$sort", new Document("total", -1))
+                        ),
+                        10));
     }
 
     @Transactional(propagation = Propagation.REQUIRES_NEW)

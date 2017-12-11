@@ -31,7 +31,7 @@ controller('FavoriteController', function ($scope, $rootScope, QueryServices, Ng
                             if (result.code === 1 ) {
                                 $scope.cribs = result.payLoad;
                             } else {
-                                alert("Failed to load recommend list");
+                                alert("Failed to load favorite list");
                             }
                         });
                 } else {

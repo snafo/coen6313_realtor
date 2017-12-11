@@ -13,6 +13,21 @@ controller('AgentController', function ($scope, $rootScope, QueryServices, NgMap
         $scope.map = map;
     });
 
+    $scope.agents = [];
+
+    $scope.firms = [];
+
+    $scope.selections = {
+        agent : 'Agent',
+        firm : 'Firm'
+    };
+
+    $scope.selected = 'agent';
+
+    $scope.selectedFirm;
+
+    $scope.selectedAgent;
+
     $scope.showProp = function(event, prop) {
         $scope.selectedProp = prop;
         $scope.map.showInfoWindow('myInfoWindow',prop.propertyId.toString());
@@ -24,20 +39,67 @@ controller('AgentController', function ($scope, $rootScope, QueryServices, NgMap
             .then(function (result) {
                 if (result.payLoad[0].name === $rootScope.globals.currentUser.name) {
                     $scope.user = result.payLoad[0];
-                    QueryServices.getRecommend(result.payLoad[0].id)
+                    QueryServices.getAgentList(result.payLoad[0].id)
                         .then(function (result){
                             if (result.code === 1 ) {
-                                $scope.cribs = result.payLoad;
+                                result.payLoad.forEach(function(data){
+                                    if (data._id){
+                                        $scope.agents.push(
+                                            {
+                                                _id : data._id[0],
+                                                total : data.total
+                                            });
+                                    }
+                                });
+                                // $scope.cribs = result.payLoad;
                             } else {
                                 alert(result.message);
                             }
                         });
+                    QueryServices.getFirmList(result.payLoad[0].id)
+                        .then(function (result){
+                            if (result.code === 1 ) {
+                                result.payLoad.forEach(function(data){
+                                    if (data._id){
+                                        $scope.firms.push(data);
+                                    }
+                                });
+                                // $scope.cribs = result.payLoad;
+                            } else {
+                                alert(result.message);
+                            }
+                        });
+
                 } else {
                     // vm.user = $rootScope.globals.currentUser;
                     // console.log("cannot map");
                 }
             });
     }
+
+    $scope.$watch('selectedAgent', function(newValue, oldValue){
+        if (newValue !== oldValue){
+            QueryServices.getAgentProperty(newValue).then(function(result){
+                if (result.code === 1 ) {
+                    $scope.cribs = result.payLoad;
+                } else {
+                    alert("Failed to load property list");
+                }
+            });
+        }
+    },true);
+
+    $scope.$watch('selectedFirm', function(newValue, oldValue){
+        if (newValue !== oldValue){
+            QueryServices.getFirmProperty(newValue).then(function(result){
+                if (result.code === 1 ) {
+                    $scope.cribs = result.payLoad;
+                } else {
+                    alert("Failed to load property list");
+                }
+            });
+        }
+    },true);
 
     $scope.createFavorite = function (crib) {
         var param = {uid: $scope.user.id ,propertyid: crib.propertyId};

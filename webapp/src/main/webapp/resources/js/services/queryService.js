@@ -95,6 +95,34 @@ angular.module('app.services')
                 .then(stripRestangular);
         }
 
+        function getAgentList(uid){
+            return Restangular.one("/favorite/agent/" + uid)
+                .get()
+                .then(stripRestangular);
+        }
+
+        function getFirmList(uid){
+            return Restangular.one("/favorite/firm/" + uid)
+                .get()
+                .then(stripRestangular);
+        }
+
+        function getAgentProperty(name){
+            return Restangular.one("/broker/agentproperty/")
+                .get({
+                    'agentName' : name
+                })
+                .then(stripRestangular);
+        }
+
+        function getFirmProperty(name){
+            return Restangular.one("/broker/firmproperty/")
+                .get({
+                    'firmName' : name
+                })
+                .then(stripRestangular);
+        }
+
         return {
             getProperty : getProperty,
             createUser : createUser,
@@ -107,6 +135,10 @@ angular.module('app.services')
             estimatePrice : estimatePrice,
             getFavoriteProperty : getFavoriteProperty,
             getRecommend : getRecommend,
-            getSearchParams : getSearchParams
+            getSearchParams : getSearchParams,
+            getAgentList : getAgentList,
+            getFirmList : getFirmList,
+            getAgentProperty : getAgentProperty,
+            getFirmProperty : getFirmProperty
         };
     });

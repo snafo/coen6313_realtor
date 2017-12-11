@@ -1,6 +1,6 @@
 
 angular.module('app.controllers')
-    .controller('LoginController', function LoginController($location, AuthenticationService, FlashService) {
+    .controller('LoginController', function LoginController($location, SearchResults, AuthenticationService, FlashService) {
         var vm = this;
 
         vm.login = login;
@@ -8,6 +8,7 @@ angular.module('app.controllers')
         (function initController() {
             // reset login status
             AuthenticationService.ClearCredentials();
+            SearchResults.cleanProperty();
         })();
 
         function login() {

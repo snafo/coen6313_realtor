@@ -1,0 +1,134 @@
+<div class="container">
+    <div class="col-sm-12 price-form">
+        <div class="row price-form-row">
+            <div class="col-sm-6">
+                <div class="input-group">
+                    <span class="input-group-addon">Agent / Firm</span>
+                    <select ng-model="selected" class="form-control">
+                        <option ng-repeat="(key, value) in selections" value="{{key}}">{{value}}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-sm-6" ng-show="selected == 'agent'">
+                <div class="input-group">
+                    <span class="input-group-addon">Agent List</span>
+                    <select ng-model="selectedAgent" class="form-control">
+                        <option ng-repeat="agent in agents" value="{{agent._id}}">{{agent._id}}&nbsp[{{agent.total}}]</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-sm-6" ng-show="selected == 'firm'">
+                <div class="input-group">
+                    <span class="input-group-addon">Firm List</span>
+                    <select ng-model="selectedFirm" class="form-control">
+                        <option ng-repeat="firm in firms" value="{{firm._id}}">{{firm._id}}&nbsp[{{firm.total}}]</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <button
+                class="btn btn-primary"
+                ng-click="showMap = !showMap"
+                ng-show="!showMap">Map
+        </button>
+
+        <button
+                class="btn btn-danger"
+                ng-click="showMap = !showMap"
+                ng-show="showMap">Close
+        </button>
+
+        <!--Google Map-->
+        <div class="listing-form" ng-if="showMap  == true">
+            <ng-map style="height: 500px" zoom="11" center="45.517974, -73.649795">
+                <info-window id="myInfoWindow">
+                    <div ng-non-bindable >
+                        type: {{selectedProp.type}} <br/>
+                        price:{{selectedProp.price}} <br/>
+                        year: {{selectedProp.year}} <br/>
+                        area: {{selectedProp.area}} <br/>
+                        total rooms: {{selectedProp.rooms.total}} <br/>
+                        <a href="{{selectedProp.url}}" target="_blank">Go To</a> <br/>
+                        <img ng-src="{{ selectedProp.image }}"class="img-rounded" alt="Cinque Terre" style="width:160px;height:90px;">
+                    </div>
+                </info-window>
+                <marker ng-repeat="crib in cribs"
+                        position="{{crib.location.lat}},{{crib.location.lng}}"
+                        title="{{crib.address}}"
+                        id="{{crib.propertyId}}"
+                        on-click="showProp(event, crib)">
+                </marker>
+            </ng-map>
+        </div>
+
+    </div>
+</div>
+<!-- Menu Search -->
+<div id="seachResult" class="tab-pane fade in active">
+
+    <!-- Real Estate Listings -->
+    <div class="container">
+        <div class="col-sm-4" dir-paginate="crib in cribs | itemsPerPage:12 | orderBy: '+price'">
+            <div class="thumbnail">
+                <img ng-src="{{ crib.image }}" alt="">
+                <div class="caption">
+                    <div ng-hide="showDetails === true">
+                        <h3><i class="glyphicon glyphicon-tag"></i> {{crib.price | currency}}</h3>
+                        <h6><i class="glyphicon glyphicon-home"></i> {{crib.address}}
+                        </h6>
+                    </div>
+
+                    <button class="btn btn-xs btn-success"
+                            ng-hide="showDetails === true"
+                            ng-click="showDetails = !showDetails">
+                        Details
+                    </button>
+                    <span class="label label-primary label-sm">{{crib.type}}</span>
+                    <a href="{{crib.url}}" target="_blank">{{crib.source}} </a>
+
+                    <button ng-if="!favorites"
+                            class="btn btn-xs btn-primary"
+                            ng-show="showDetails  === true"
+                            ng-click="createFavorite(crib)"
+                            ng-disabled="crib.favorite">
+                        Save
+                    </button>
+
+                    <button ng-if="favorites"
+                            class="btn btn-xs btn-primary"
+                            ng-show="showDetails  === true"
+                            ng-click="removeFavorite(crib)"
+                            ng-disabled="crib.favorite">
+                        remove
+                    </button>
+
+                    <button class="btn btn-xs btn-danger"
+                            ng-show="showDetails === true"
+                            ng-disabled="isDisabled"
+                            ng-click="showDetails = !showDetails">
+                        Close
+                    </button>
+
+                    <div class="details" ng-show="showDetails === true">
+                        <h4>
+                            <span class="label label-primary">Beds: {{crib.rooms.bedroom}}</span>
+                            <span class="label label-primary">Baths: {{crib.rooms.bathroom}}</span>
+                            <span class="label label-primary">SqFt: {{crib.area}}</span>
+                        </h4>
+                        <p><h6>{{crib.discription}}</h6></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12">
+        <dir-pagination-controls
+                max-size="10"
+                direction-links="true"
+                boundary-links="true">
+        </dir-pagination-controls>
+    </div>
+</div>
